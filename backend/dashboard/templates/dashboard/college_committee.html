@@ -1,0 +1,79 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<div class="table-card" >
+    <h3> 👤 Add Committee Member</h3>
+    <form method="POST" class="custom-form">
+        {% csrf_token %}
+        {{ form.as_p }}<br>
+        <center><button name="upload" class="btn-golden">Add college_committee_member</button></center>
+    </form>
+</div>
+
+<div class="year-grid">
+    <div class="table-card mt-20">
+    <h3>College Committee Members</h3>
+    {% for year, members in grouped_data.items %}
+    
+    <div class="year-card">
+        <div class="year-header" onclick="toggleYear('{{ year }}')">
+            <h3>{{ year }}</h3>
+            <span>Click to View ▼</span>
+        </div>
+
+        <div class="year-body" id="year-{{ year }}">
+            <table class="dashboard-table">
+                <tr>
+                    <th>Role</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>Action</th>
+                </tr>
+                {% for c in members %}
+                <tr>
+                    <td>{{ c.role }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.department }}</td>
+                    <td>{{ c.position }}</td>
+                    <td>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="?edit={{ c.id }}" class="btn-edit">Edit</a>
+                            
+                            <form method="POST" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="cid" value="{{ c.id }}">
+                                <button name="delete" class="btn-danger confirm-delete">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+<script>
+    function toggleYear(year) {
+        // ID se body dhoondo
+        var bodyDiv = document.getElementById("year-" + year);
+        
+        // Body ka parent yani 'Card' dhoondo
+        var card = bodyDiv.parentElement;
+
+        // Active class toggle karo (CSS handle karega open/close)
+        if (card.classList.contains("active")) {
+            card.classList.remove("active");
+        } else {
+            // Optional: Agar chahte ho ek baar me ek hi khule, to ye line uncomment karein:
+            // document.querySelectorAll('.year-card').forEach(c => c.classList.remove('active'));
+            
+            card.classList.add("active");
+        }
+    }
+</script>
+
+{% endblock %}

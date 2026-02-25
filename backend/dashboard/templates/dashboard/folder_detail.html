@@ -1,0 +1,46 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<div style="display:flex; justify-content:space-between; align-items:center;">
+    <h2>📂 Album: {{ folder.title }}</h2>
+    <a href="{% url 'gallery_view' %}" class="btn-golden">Back to Gallery</a>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <div style="text-align:right; margin-bottom:20px;">
+      <br><br>  <button name="update_positions" class="btn-golden">💾 Save Positions</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+        
+        {% for img in images %}
+        <div class="slider-card" style="padding:10px;">
+            
+            <a href="{{ img.image.url }}" target="_blank">
+                <img src="{{ img.image.url }}" style="width:100%; height:150px; object-fit:cover; border-radius:5px;">
+            </a>
+
+            <div style="margin-top:10px; display:flex; gap:5px; align-items:center;">
+                <label style="font-size:12px;">Pos:</label>
+                <input type="number" name="pos_{{ img.id }}" value="{{ img.position }}" style="width:60px; padding:5px;">
+            </div>
+
+            <button type="submit" name="delete_image" value="1" 
+                formaction="?delete={{ img.id }}" 
+                onclick="document.getElementById('del_id').value='{{ img.id }}'; this.form.name='delete_image'"
+                style="width:100%; background:#dc3545; color:white; border:none; padding:5px; margin-top:10px; cursor:pointer;">
+                Delete
+            </button>
+
+        </div>
+        {% endfor %}
+
+    </div>
+    
+    <input type="hidden" name="img_id" id="del_id">
+
+</form>
+
+{% endblock %}

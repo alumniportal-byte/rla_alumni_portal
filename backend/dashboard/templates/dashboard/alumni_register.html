@@ -1,0 +1,173 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+    <div style="padding: 10px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; margin-bottom: 15px; border-radius: 5px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+
+    <div class="table-card" style="flex: 1; min-width: 300px;">
+        <h3>📂 Bulk Upload (Excel/CSV)</h3>
+        <p style="font-size: 12px; color: #666; margin-bottom: 10px;">
+            Columns required: name, course, batch, designation, email, phone, registered
+        </p>
+        <form method="POST" enctype="multipart/form-data" class="custom-form">
+            {% csrf_token %}
+            <div style="margin-bottom: 10px;">
+                {{ upload_form.file }}
+            </div>
+            <button type="submit" name="bulk_upload" class="btn-golden" style="width: 100%;">
+                Upload & Add Data
+            </button>
+        </form>
+    </div>
+
+    <div class="table-card" style="flex: 2; min-width: 300px;">
+        <h3>{% if edit_id %}✏️ Edit Alumni{% else %}👤 Add Single Alumni{% endif %}</h3>
+        <form method="POST" class="custom-form">
+            {% csrf_token %}
+            
+            {% if edit_id %}
+                <input type="hidden" name="aid" value="{{ edit_id }}">
+            {% endif %}
+
+            {{ form.as_p }}
+            
+            <center>
+                <button type="submit" name="add_single" class="btn-golden">
+                    {% if edit_id %}Update Member{% else %}Add Member{% endif %}
+                </button>
+                {% if edit_id %}
+                    <a href="{% url 'alumni_register' %}" class="btn-danger" style="text-decoration:none; padding:10px;">Cancel</a>
+                {% endif %}
+            </center>
+        </form>
+    </div>
+
+</div>
+
+<br>
+
+<div class="table-card">
+    <h3>Alumni Register & Filters</h3>
+    <div class="filter-bar" style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+        
+        <select name="batch" id="live-batch" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <option value="">-- All Batches --</option>
+            {% for b in batches %}
+                <option value="{{ b }}" {% if current_batch == b|stringformat:"s" %}selected{% endif %}>{{ b }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="course" id="live-course" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <option value="">-- All Courses --</option>
+            {% for c in courses %} <option value="{{ c }}" {% if current_course == c %}selected{% endif %}>{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="text" name="search" id="live-search" value="{{ current_search }}" placeholder="Search Name..." style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-width: 200px;">
+
+        <select name="Status" id="live-status" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <option value="">-- All Status --</option>
+            <option value="True" {% if current_status == "True" %}selected{% endif %}>Registered</option>
+            <option value="False" {% if current_status == "False" %}selected{% endif %}>Not Registered</option>
+        </select>
+
+        <a href="." class="btn-danger" style="text-decoration: none; padding: 10px 15px; display: inline-block;">Reset</a>
+    </div>
+</div>
+
+<div class="table-card mt-20">
+    <table class="dashboard-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Batch</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="live-table-body">
+            {% for a in alumni %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ a.name }}</td>
+                <td>{{ a.course }}</td>
+                <td>{{ a.batch }}</td>
+                <td>{{ a.phone }}</td>
+                <td>
+                    {% if a.is_registered %}
+                        <span class="badge success" style="background: #d4edda; color: #155724; padding: 5px 10px; border-radius: 20px; font-size: 12px;">Registered</span>
+                    {% else %}
+                        <span class="badge danger" style="background: #f8d7da; color: #721c24; padding: 5px 10px; border-radius: 20px; font-size: 12px;">Not Registered</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="?edit={{ a.id }}" class="btn-edit">Edit</a>
+                        <form method="POST" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="aid" value="{{ a.id }}">
+                            <button name="delete" class="btn-danger confirm-delete">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="9">No Data Found</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const searchInput = document.getElementById('live-search');
+        const batchSelect = document.getElementById('live-batch');
+        const courseSelect = document.getElementById('live-course'); 
+        const statusSelect = document.getElementById('live-status');
+        const tableBody = document.getElementById('live-table-body');
+
+        function fetchFilteredData() {
+            const searchValue = searchInput.value;
+            const batchValue = batchSelect.value;
+            const courseValue = courseSelect.value;
+            const statusValue = statusSelect.value;
+            const url = `?search=${searchValue}&batch=${batchValue}&course=${courseValue}&Status=${statusValue}`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newTbody = doc.getElementById('live-table-body');
+                    if(newTbody && tableBody) {
+                        tableBody.innerHTML = newTbody.innerHTML;
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        if(batchSelect) batchSelect.addEventListener('change', fetchFilteredData);
+        if(courseSelect) courseSelect.addEventListener('change', fetchFilteredData);
+        if(statusSelect) statusSelect.addEventListener('change', fetchFilteredData);
+
+        let timeout = null;
+        if(searchInput) {
+            searchInput.addEventListener('input', function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(fetchFilteredData, 300);
+            });
+        }
+    });
+</script>
+
+{% endblock %}

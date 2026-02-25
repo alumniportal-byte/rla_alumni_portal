@@ -1,0 +1,178 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<style>
+    :root { --maroon: #800000; }
+    .dashboard-container { padding: 20px; background-color: #f8f9fa; min-height: 100vh; }
+    .custom-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 30px; border: none; overflow: hidden; }
+    .card-header-maroon { background-color: var(--maroon); color: white; padding: 15px 20px; font-weight: bold; font-size: 1.1rem; }
+    .form-wrapper { padding: 25px; }
+    .form-wrapper p { margin-bottom: 15px; }
+    .form-wrapper label { display: block; font-weight: 600; margin-bottom: 5px; }
+    .form-wrapper input, .form-wrapper select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    .btn-save { background-color: #00bcd4; color: white; border: none; padding: 12px 25px; width: 100%; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+    .custom-table { width: 100%; border-collapse: collapse; }
+    .custom-table thead { background-color: #212529; color: white; }
+    .custom-table th, .custom-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+    .badge-file { padding: 4px 8px; border-radius: 4px; font-size: 11px; text-decoration: none; margin-right: 5px; }
+    /* Category Header Styling */
+    .cat-section { margin-bottom: 40px; }
+    .cat-title { 
+        background: var(--maroon); 
+        color: white; 
+        padding: 12px 25px; 
+        font-weight: bold; 
+        border-radius: 5px 30px 5px 5px;
+        display: inline-block;
+        margin-bottom: 15px;
+        box-shadow: 3px 3px 0px var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Session Accordion */
+    .session-container { 
+        border: 1px solid #e0e0e0; 
+        margin-top: 10px; 
+        border-radius: 8px; 
+        overflow: hidden; 
+        background: white;
+        transition: 0.3s ease;
+    }
+    .session-container:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+    .session-header { 
+        padding: 15px 20px; 
+        cursor: pointer; 
+        background: #fff; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+    }
+    .session-header h5 { margin: 0; color: #333; font-weight: 600; }
+    
+    .event-count { background: #f0f0f0; padding: 3px 10px; border-radius: 20px; font-size: 11px; color: #666; font-weight: bold; }
+    .arrow-icon { color: var(--maroon); transition: 0.3s; }
+
+    /* Table Styling */
+    .table-wrapper { display: none; background: #fff; border-top: 1px solid #eee; padding: 15px; }
+    .session-container.active .table-wrapper { display: block; }
+    .session-container.active .arrow-icon { transform: rotate(180deg); }
+    .session-container.active { border-left: 4px solid var(--maroon); }
+
+    .custom-table { width: 100%; border-collapse: collapse; }
+    .custom-table th { background: #f9f9f9; color: #555; font-size: 12px; text-transform: uppercase; padding: 12px; border-bottom: 2px solid #eee; }
+    .custom-table td { padding: 12px; border-bottom: 1px solid #f1f1f1; font-size: 14px; }
+
+    /* Action Buttons */
+    .badge-file { 
+        padding: 4px 10px; border-radius: 4px; font-size: 11px; 
+        text-decoration: none; font-weight: 600; display: inline-block; margin: 2px;
+    }
+    .btn-edit { color: #1a73e8; text-decoration: none; font-weight: bold; margin-right: 15px; font-size: 13px; }
+    .btn-delete { background: none; border: none; color: #d32f2f; font-weight: bold; cursor: pointer; font-size: 13px; padding: 0; }
+    .btn-delete:hover { text-decoration: underline; }
+</style>
+
+<div class="dashboard-container">
+    <h3 class="mb-4">Manage Alumni Events</h3>
+
+    <div class="custom-card">
+        <div class="card-header-maroon">Add / Edit Alumni Event</div>
+        <div class="form-wrapper">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="eid" value="{{ edit_id|default:'' }}">
+                {{ form.as_p }}
+                <button type="submit" name="upload" class="btn-save">Save Event</button>
+            </form>
+        </div>
+    </div>
+<div class="dashboard-container">
+    <h3 class="mb-4" style="color: var(--maroon); font-weight: bold; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 5px;">
+        Alumni Events Directory
+    </h3>
+
+    {% regroup events by category as category_list %}
+    
+    {% for cat_group in category_list %}
+        <div class="cat-section">
+            <div class="cat-title">{{ cat_group.grouper.name }}</div>
+
+            {% regroup cat_group.list by year_session as session_list %}
+
+            {% for session in session_list %}
+                <div class="session-container" id="session-{{ forloop.parentloop.counter }}-{{ forloop.counter }}">
+                    
+                    <div class="session-header" onclick="toggleSession('session-{{ forloop.parentloop.counter }}-{{ forloop.counter }}')">
+                        <h5><i class="bi bi-calendar3 me-2"></i> Session: {{ session.grouper }}</h5>
+                        <div>
+                            <span class="event-count">{{ session.list|length }} Events</span>
+                            <span class="ms-2 arrow-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 15%;">Date</th>
+                                    <th style="width: 25%;">Event Title & Organizer</th>
+                                    <th style="width: 15%;">Resource_Person</th>
+                                    <th style="width: 15%;">Batch</th>
+                                    <th style="width: 15%;">Resources</th>
+                                    <th style="width: 15%; text-align: center;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for e in session.list %}
+                                <tr>
+                                    <td>
+                                        <div style="font-weight: 600;">{{ e.date|date:"d M, Y" }}</div>
+                                    </td>
+                                    <td>
+                                        <div style="font-weight: 700; color: #222;">{{ e.title }}</div>
+                                        <div style="font-size: 12px; color: #777;">By: {{ e.organized_by }}</div>
+                                    </td>
+                                    <td>{{ e.resource_person|default:"-" }}</td>
+                                    <td>{{ e.batch|default:"-" }}</td>
+                                    <td>
+                                        {% if e.image %}
+                                            <a href="{{ e.image.url }}" target="_blank" class="badge-file" style="background: #fff3e0; color: #e65100; border: 1px solid #ffcc80;">IMAGE</a>
+                                        {% endif %}
+                                        {% if e.report_pdf %}
+                                            <a href="{{ e.report_pdf.url }}" target="_blank" class="badge-file" style="background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7;">REPORT</a>
+                                        {% endif %}
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <a href="?edit={{ e.id }}" class="btn-edit">EDIT</a>
+                                        <form method="POST" style="display:inline;" onsubmit="return confirm('Pakka delete karna hai?');">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="eid" value="{{ e.id }}">
+                                            <button type="submit" name="delete" class="btn-delete">DELETE</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% empty %}
+        <div class="custom-card p-5 text-center text-muted" style="border: 2px dashed #ccc; background: transparent; box-shadow: none;">
+            <i class="bi bi-folder-x" style="font-size: 3rem; color: #ccc;"></i>
+            <h4 class="mt-3">Abhi tak koi event add nahi hua hai.</h4>
+            <p>Naya event add karne ke liye upar wala form use karein.</p>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleSession(id) {
+        const el = document.getElementById(id);
+        el.classList.toggle('active');
+    }
+</script>
+{% endblock %}

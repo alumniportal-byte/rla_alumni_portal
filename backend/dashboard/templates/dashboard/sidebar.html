@@ -1,0 +1,177 @@
+{% load static %}
+
+<style>
+    /* ===========================
+       SIDEBAR CONTAINER
+    =========================== */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 100vh;
+        background-color: #800000; /* Maroon Theme */
+        color: white;
+        overflow: hidden; 
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+        box-shadow: 4px 0 10px rgba(0,0,0,0.1); 
+    }
+
+    /* ===========================
+       LOGO HEADER (FIXED PART)
+    =========================== */
+    .sidebar .logo {
+        flex-shrink: 0; 
+        padding: 20px;
+        text-align: center;
+        margin: 0;
+        box-shadow: none !important; 
+        text-shadow: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1); 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 20px;
+        color: #fff;
+        z-index: 1001;
+    }
+
+    .logo-img {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #fff;
+    }
+
+    /* ===========================
+       MENU LINKS (SCROLLABLE PART)
+    =========================== */
+    .menu {
+        overflow-y: auto; 
+        flex-grow: 1; 
+        padding: 10px 0;
+    }
+
+    .menu::-webkit-scrollbar {
+        width: 5px;
+    }
+    .menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .menu::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.1);
+        border-radius: 3px;
+    }
+
+    .menu-link {
+        display: block;
+        padding: 12px 20px;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 15px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .menu-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        padding-left: 25px;
+    }
+
+    .menu-link.active {
+        background-color: #d4af37;
+        color: #fff;
+        border-left-color: #fff;
+        font-weight: bold;
+    }
+
+    .menu-link.admin {
+        margin-top: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        color: #d4af37;
+        font-weight: bold;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .menu-link.admin:hover {
+        background: #d4af37;
+        color: #000;
+    }
+
+    .menu-section-label {
+        padding: 10px 20px 5px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255,255,255,0.4);
+        font-weight: bold;
+    }
+</style>
+
+<aside class="sidebar">
+    <h2 class="logo">
+        <img src="{% static 'images/rla_logo.jpg' %}" alt="RLA Logo" class="logo-img">
+        <span>RLAC Admin</span>
+    </h2>
+
+    <nav class="menu">
+        <a href="{% url 'dashboard' %}" class="menu-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}">
+            📊 Dashboard
+        </a>
+        
+        <div class="menu-section-label">Website Content</div>
+        <a href="{% url 'slider' %}" class="menu-link {% if request.resolver_match.url_name == 'slider' %}active{% endif %}">
+            🖼 Home Slider
+        </a>
+        <a href="{% url 'testimonials' %}" class="menu-link {% if request.resolver_match.url_name == 'testimonials' %}active{% endif %}">
+            💬 Testimonials
+        </a>
+
+        <div class="menu-section-label">College Directory</div>
+        <a href="{% url 'manage_faculty' %}" class="menu-link {% if request.resolver_match.url_name == 'manage_faculty' %}active{% endif %}">
+            👨‍🏫 Teaching Faculty
+        </a>
+        <a href="{% url 'manage_staff' %}" class="menu-link {% if request.resolver_match.url_name == 'manage_staff' %}active{% endif %}">
+            💼 Non-Teaching Staff
+        </a>
+
+        <div class="menu-section-label">Associations</div>
+        <a href="{% url 'association_bearers' %}" class="menu-link {% if request.resolver_match.url_name == 'association_bearers' %}active{% endif %}">
+            🤝 Alumni Association
+        </a>
+        <a href="{% url 'college_committee' %}" class="menu-link {% if request.resolver_match.url_name == 'college_committee' %}active{% endif %}">
+            🏛 College Committee
+        </a>
+
+        <div class="menu-section-label">Alumni Portal</div>
+        <a href="{% url 'alumni_register' %}" class="menu-link {% if request.resolver_match.url_name == 'alumni_register' %}active{% endif %}">
+            🎓 Alumni Register
+        </a>
+        <a href="{% url 'manage_alumni_events' %}" class="menu-link {% if request.resolver_match.url_name == 'manage_alumni_events' %}active{% endif %}">
+            📅 Alumni Events
+        </a>
+        <a href="{% url 'wall_of_fame' %}" class="menu-link {% if request.resolver_match.url_name == 'wall_of_fame' %}active{% endif %}">
+            🏆 Wall of Fame
+        </a>
+        <a href="{% url 'gallery_view' %}" class="menu-link {% if request.resolver_match.url_name == 'gallery_view' %}active{% endif %}">
+            📷 Gallery
+        </a>
+
+        <div style="height:1px; background:rgba(255,255,255,0.1); margin: 10px 20px;"></div>
+        
+        <a href="{% url 'export_dashboard' %}" class="menu-link {% if request.resolver_match.url_name == 'export_dashboard' %}active{% endif %}">
+            📥 Export Data
+        </a>
+
+        <div style="flex-grow:1;"></div>
+        
+        <a href="{% url 'admin_control' %}" class="menu-link admin {% if request.resolver_match.url_name == 'admin_control' %}active{% endif %}">
+            ⚙ Admin Control
+        </a>
+    </nav>
+</aside>

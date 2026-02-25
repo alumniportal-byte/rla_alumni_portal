@@ -1,0 +1,88 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    <div style="padding: 10px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; margin-bottom: 15px; border-radius: 5px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<section class="stats-grid">
+    <div class="stat-card">
+        <h4>Total Alumni</h4>
+        <p>{{ alumni_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h4>Events</h4>
+        <p>{{ event_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h4>Testimonials</h4>
+        <p>{{ testimonial_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h4>Registered Alumni</h4>
+        <p>{{ registered_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h4>Pending Alumni</h4>
+        <p>{{ pending_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h4>Wall of Fame</h4>
+        <p>{{ wall_count }}</p>
+    </div>  
+    <div class="stat-card">
+        <h4>Teaching Faculty</h4>
+        <p>{{ teachers_count }}</p>
+    </div>
+
+    <div class="stat-card" style="border-bottom-color: #00bcd4;">
+        <h4>Non-Teaching Staff</h4>
+        <p>{{ non_teachers_count }}</p>
+    </div>
+
+    <div class="stat-card" style="border-bottom-color: #b38b2d;">
+        <h4>Alumni Events</h4>
+        <p>{{ events_count }}</p>
+    </div>
+</div>
+</section>
+
+<section class="table-card">
+    <h3>Latest Registered Alumni</h3>
+
+    <table class="dashboard-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Batch</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in latest_alumni %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ a.name }}</td>
+                <td>{{ a.course }}</td>
+                <td>{{ a.batch }}</td>
+                <td>
+                    {% if a.is_registered %}
+                        <span class="badge success">Registered</span>
+                    {% else %}
+                        <span class="badge danger">Not Registered</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

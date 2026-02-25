@@ -1,0 +1,418 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<style>
+    :root {
+        --maroon: #800000;
+        --dark-maroon: #600000;
+    }
+
+    .dashboard-container {
+        padding: 20px;
+        background-color: #f8f9fa;
+        min-height: 100vh;
+    }
+
+    /* Card Styling */
+    .custom-card {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin-bottom: 30px; /* Space between Form and Table */
+        border: none;
+        overflow: hidden;
+    }
+
+    .card-header-maroon {
+        background-color: var(--maroon);
+        color: white;
+        padding: 15px 20px;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    /* Form Styling */
+    .form-wrapper {
+        padding: 25px;
+    }
+
+    .form-wrapper p {
+        margin-bottom: 15px;
+    }
+
+    .form-wrapper label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-wrapper input, .form-wrapper select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .btn-save {
+        background-color: #00bcd4; /* Cyan color as per your screenshot */
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        width: 100%;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    .btn-save:hover {
+        background-color: #00acc1;
+    }
+
+    /* Table Styling - Full Width */
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .custom-table thead {
+        background-color: #212529;
+        color: white;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .faculty-img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid var(--maroon);
+    }
+
+    /* Action Buttons */
+    .btn-edit {
+        color: #673ab7;
+        text-decoration: none;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .btn-delete {
+        background-color: #c62828;
+        color: white;
+        border: none;
+        padding: 6px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .faculty-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+        .page-title {
+            text-align: center;
+        color: var(--maroon);
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+
+    .page-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--gold);
+        margin: 10px auto;
+    }
+
+    /* Accordion Styling */
+    .dept-accordion {
+        background: #fff;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .dept-accordion:hover {
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    }
+
+    .dept-header {
+        background: #fff;
+        padding: 20px 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s;
+    }
+
+    .dept-header:hover {
+        background: var(--light-gray);
+    }
+
+    .dept-header h4 {
+        margin: 0;
+        color: var(--maroon);
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .click-view {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gold);
+        background: rgba(212, 175, 55, 0.1);
+        padding: 6px 15px;
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+
+    /* Faculty Grid Section */
+    .faculty-grid {
+        display: none; /* Default Hidden */ 
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+        padding: 30px;
+        background: var(--light-gray);
+        border-top: 1px solid var(--border-color);
+        animation: slideDown 0.4s ease-out;
+    }
+
+    /* Show Grid when active */
+    .dept-accordion.active .faculty-grid {
+        display: grid;
+    }
+
+    .dept-accordion.active .dept-header {
+        border-bottom: 2px solid var(--gold);
+    }
+
+    /* Card Styling */
+    .faculty-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        text-align: center;
+        padding: 25px 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faculty-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        border-color: var(--gold);
+    }
+
+    .img-box {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%; /* Rounded Photos */
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 4px solid #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        background: #eee;
+    }
+
+    .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .faculty-info p {
+        color: var(--maroon);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 8px 0;
+        letter-spacing: 1px;
+    }
+
+    .faculty-info h5 {
+        color: var(--dark-text);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0;
+    }
+    /* Actions Buttons Styling */
+.card-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-btn {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.edit-link {
+    color: #673ab7; /* Purple for Edit */
+}
+
+.edit-link:hover {
+    color: #512da8;
+    transform: scale(1.05);
+}
+
+.delete-link {
+    color: #d32f2f; /* Red for Delete */
+}
+
+.delete-link:hover {
+    color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* Icons styling if you use FontAwesome, otherwise simple text works */
+.action-btn i {
+    font-size: 0.85rem;
+}
+
+    /* Animation */
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .faculty-grid {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            padding: 20px;
+        }
+        .page-title {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<div class="dashboard-container">
+    <h3 class="mb-4">Welcome to RLAC Alumni Admin Dashboard</h3>
+
+    <div class="custom-card">
+        <div class="card-header-maroon">
+            {% if edit_id %}Update{% else %}Add{% endif %} Faculty
+        </div>
+        <div class="form-wrapper">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="fid" value="{{ edit_id|default:'' }}">
+                
+                {{ form.as_p }}
+
+                <button type="submit" name="upload" class="btn-save">
+                    Save Faculty
+                </button>
+                
+                {% if edit_id %}
+                    <a href="{% url 'manage_faculty' %}" style="display:block; text-align:center; margin-top:10px; color:#666;">Cancel Edit</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+   <div class="faculty-container">
+    <h2 class="page-title">College Faculty Directory</h2>
+
+    {% for dept in departments %}
+    <div class="dept-accordion" id="dept-{{ dept.id }}">
+        <div class="dept-header" onclick="toggleDept('dept-{{ dept.id }}')">
+            <h4>{{ dept.name|upper }}</h4>
+            <span class="click-view">Click to View ▼</span>
+        </div>
+        
+        <div class="faculty-grid">
+    {% for teacher in dept.teachers.all|dictsort:"order" %}
+    <div class="faculty-card">
+        <div class="img-box">
+            {% if teacher.image %}
+                <img src="{{ teacher.image.url }}" alt="{{ teacher.name }}">
+            {% else %}
+                <img src="/static/images/default-user.png" alt="No Photo">
+            {% endif %}
+        </div>
+        <div class="faculty-info">
+            <p>{{ teacher.designation }}</p>
+            <h5>{{ teacher.name }}</h5>
+        </div>
+
+        <div class="card-actions">
+            <a href="?edit={{ teacher.id }}" class="action-btn edit-link">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <form method="POST" style="display:inline;" onsubmit="return confirm('Bhai, pakka delete karna hai?');">
+                {% csrf_token %}
+                <input type="hidden" name="fid" value="{{ teacher.id }}">
+                <button type="submit" name="delete" class="action-btn delete-link">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </form>
+        </div>
+    </div>
+    {% empty %}
+    <p style="grid-column: 1/-1; text-align: center; color: #999;">No faculty found in this department.</p>
+    {% endfor %}
+</div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleDept(id) {
+        const element = document.getElementById(id);
+        element.classList.toggle('active');
+        
+        // Change Arrow icon
+        const span = element.querySelector('.click-view');
+        if (element.classList.contains('active')) {
+            span.innerHTML = 'Click to Hide ▲';
+        } else {
+            span.innerHTML = 'Click to View ▼';
+        }
+    }
+</script>
+{% endblock %}

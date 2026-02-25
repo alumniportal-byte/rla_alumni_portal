@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RLA Admin Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'dashboard/style.css' %}">
+
+    <style>
+        /* ============================
+           FIXED SIDEBAR & LAYOUT CSS
+        ============================ */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9; /* Light Grey Background */
+            overflow-x: hidden; /* Horizontal scroll hide karein */
+        }
+
+        /* 1. SIDEBAR KO FIX KARNA (Jo humne include kiya hai) */
+        .sidebar {
+            position: fixed;        /* 🔥 Isse sidebar chipak jayega */
+            top: 0;
+            left: 0;
+            bottom: 0;              /* Poori height cover karega */
+            width: 260px;           /* Sidebar ki width */
+            height: 100vh;          /* Viewport Height */
+            overflow-y: auto;       /* Sidebar ke andar scroll allow karein */
+            z-index: 1000;          /* Content ke upar rahe */
+            background-color: #800000; /* Maroon color fallback */
+        }
+
+        /* 2. MAIN CONTENT AREA (Right Side) */
+        .main-area {
+            margin-left: 260px;     /* 🔥 Sidebar ki width jitna margin zaroori hai */
+            width: calc(100% - 260px); /* Baki bachi hui jagah */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 3. TOPBAR STYLE */
+        .topbar {
+            background: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           /* Topbar ko bhi upar chipkana chahein to */
+            top: 0;
+            z-index: 900;
+        }
+
+        /* CONTENT BLOCK PADDING */
+        .main-area > div:not(.topbar) {
+            padding: 30px; /* Content ke charo taraf space */
+        }
+
+        /* MOBILE RESPONSIVE (Phone par sidebar hatane ke liye) */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main-area {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+    {% include 'dashboard/sidebar.html' %}
+
+    <main class="main-area">
+        <div class="topbar">
+            {% block topbar %}
+            <span style="font-size: 18px; color: #333;"> 
+                <strong>Welcome to RLAC Alumni Admin Dashboard</strong>
+            </span>
+            {% endblock %}
+        </div>
+
+        <div style="padding: 20px;">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+    // Delete confirmation logic
+    document.querySelectorAll(".confirm-delete").forEach(btn=>{
+        btn.addEventListener("click", function(e){
+            let ok = confirm("Are you sure you want to delete this item?");
+            if(!ok){
+                e.preventDefault();
+            }
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>

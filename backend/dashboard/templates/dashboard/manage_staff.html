@@ -1,0 +1,157 @@
+{% extends 'dashboard/base.html' %}
+
+{% block content %}
+<style>
+    :root { --maroon: #800000; --gold: #d4af37; --light-gray: #f8f9fa; }
+    .dashboard-container { padding: 20px; background-color: #f8f9fa; min-height: 100vh; font-family: sans-serif; }
+
+    /* Card & Form Styling */
+    .custom-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 30px; border: none; overflow: hidden; }
+    .card-header-maroon { background-color: var(--maroon); color: white; padding: 15px 20px; font-weight: bold; font-size: 1.1rem; }
+   /* Form Styling */
+    .form-wrapper {
+        padding: 25px;
+    }
+
+    .form-wrapper p {
+        margin-bottom: 15px;
+    }
+
+    .form-wrapper label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-wrapper input, .form-wrapper select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .btn-save {
+        background-color: #00bcd4; /* Cyan color as per your screenshot */
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        width: 100%;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+    .btn-save:hover {
+        background-color: #00acc1;
+    }
+    /* Department Accordion Styling */
+    .dept-accordion { background: #fff; border-radius: 8px; margin-bottom: 15px; border: 1px solid #ddd; overflow: hidden; }
+    .dept-header { background: #fff; padding: 15px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+    .dept-header:hover { background: var(--light-gray); }
+    .dept-header h4 { margin: 0; color: var(--maroon); font-size: 1.1rem; font-weight: bold; }
+    .click-view { color: var(--gold); font-weight: bold; font-size: 0.85rem; }
+
+    /* Table Styling inside Accordion */
+    .table-wrapper { display: none; padding: 0; border-top: 1px solid #eee; background: white; }
+    .dept-accordion.active .table-wrapper { display: block; }
+    
+    .custom-table { width: 100%; border-collapse: collapse; margin-bottom: 0; }
+    .custom-table thead { background-color: #212529; color: white; }
+    .custom-table th, .custom-table td { padding: 12px 20px; text-align: left; border-bottom: 1px solid #eee; }
+
+    /* Action Buttons */
+    .btn-edit { color: #673ab7; text-decoration: none; font-weight: bold; margin-right: 15px; }
+    .btn-delete { background: none; border: none; color: #c62828; font-weight: bold; cursor: pointer; padding: 0; }
+</style>
+
+<div class="dashboard-container">
+    <h3 class="mb-4">Manage Non-Teaching Staff</h3>
+
+    <div class="custom-card">
+        <div class="card-header-maroon">{% if edit_id %}Update{% else %}Add{% endif %} Staff Member</div>
+        <div class="form-wrapper">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="sid" value="{{ edit_id|default:'' }}">
+                {{ form.as_p }}
+                <button type="submit" name="upload" class="btn-save">Save Staff Member</button>
+                {% if edit_id %}
+                    <a href="{% url 'manage_staff' %}" style="display:block; text-align:center; margin-top:10px; color:#666;">Cancel Edit</a>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+    <h4 style="color: var(--maroon); font-weight: bold; margin-bottom: 20px; border-left: 5px solid var(--gold); padding-left: 10px;">
+        Staff Directory (Department Wise)
+    </h4>
+
+    {% for dept in departments %}
+    <div class="dept-accordion" id="dept-{{ dept.id }}">
+        <div class="dept-header" onclick="toggleDept('dept-{{ dept.id }}')">
+            <h4><i class="fas fa-building me-2"></i> {{ dept.name|upper }}</h4>
+            <span class="click-view">Click to View ▼</span>
+        </div>
+        
+        <div class="table-wrapper">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">S.no</th>
+                        <th style="width: 20%;">Name</th>
+                        <th style="width: 30%;">Designation</th>
+                        <th style="width: 30%; text-align:center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in dept.staff_members.all|dictsort:"order" %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><strong>{{ s.name }}</strong></td>
+                        <td>{{ s.designation }}</td>
+                        <td style="text-align:center;">
+                            <a href="?edit={{ s.id }}" class="btn-edit">Edit</a>
+                            <form method="POST" style="display:inline;" onsubmit="return confirm('Delete karein?');">
+                                {% csrf_token %}
+                                <input type="hidden" name="sid" value="{{ s.id }}">
+                                <button type="submit" name="delete" class="btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" style="text-align:center; padding: 30px; color: #999;">
+                            No staff members found in this department.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    function toggleDept(id) {
+        const element = document.getElementById(id);
+        
+        // Agar aap chahte hain ki ek baar mein ek hi khule, toh niche ki line uncomment karein:
+        // document.querySelectorAll('.dept-accordion').forEach(el => { if(el.id !== id) el.classList.remove('active'); });
+
+        element.classList.toggle('active');
+        
+        // Arrow Icon change logic
+        const span = element.querySelector('.click-view');
+        if (element.classList.contains('active')) {
+            span.innerHTML = 'Click to Hide ▲';
+        } else {
+            span.innerHTML = 'Click to View ▼';
+        }
+    }
+</script>
+{% endblock %}

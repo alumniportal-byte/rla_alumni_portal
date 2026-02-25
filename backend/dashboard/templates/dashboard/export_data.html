@@ -1,0 +1,325 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<style>
+    /* General Styling */
+    .section-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #eee;
+    }
+    
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f4f4f4;
+        padding-bottom: 10px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    /* Table Styling */
+    .preview-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .preview-table th {
+        background: #f8f9fa;
+        text-align: left;
+        padding: 10px;
+        color: #666;
+        font-weight: 600;
+        border-bottom: 2px solid #eee;
+    }
+    
+    .preview-table td {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        color: #444;
+    }
+
+    .preview-table tbody tr.hidden {
+        display: none;
+    }
+
+    /* Filter Toolbar */
+    .filter-toolbar {
+        display: flex;
+        gap: 10px;
+        background: #fdfdfd;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px dashed #ccc;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .custom-select {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        min-width: 150px;
+        outline: none;
+    }
+
+    .btn-export {
+        background: #d4af37;
+        color: #000;
+        border: none;
+        padding: 9px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+    }
+    
+    .btn-export:hover {
+        background: #c29f2e;
+    }
+    
+    .badge-reg { background: #e3fcef; color: #008a43; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+    .badge-pen { background: #fff4e5; color: #b57d00; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+    
+    .empty-message { text-align: center; padding: 20px; color: #999; font-style: italic; }
+</style>
+
+<h2>📥 Data Export Center</h2>
+
+<!-- Testimonials Section -->
+<div class="section-card">
+    <div class="section-header">
+        <div class="section-title">💬 Testimonials Export</div>
+    </div>
+
+    <table class="preview-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Message (Preview)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in recent_testimonials %}
+            <tr>
+                <td>{{ t.name }}</td>
+                <td>{{ t.course }}</td>
+                <td>{{ t.message|truncatechars:50 }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3" class="empty-message">No testimonials available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form method="GET" action="{% url 'export_testimonials' %}" style="text-align: right;">
+        <button class="btn-export">⬇ Export All CSV</button>
+    </form>
+</div>
+
+
+<!-- Alumni Register Section with LIVE FILTERING -->
+<div class="section-card">
+    <div class="section-header">
+        <div class="section-title">🎓 Alumni Register Export</div>
+    </div>
+
+    <div class="filter-toolbar">
+        <select id="courseFilter" class="custom-select">
+            <option value="">All Courses</option>
+            {% for c in courses %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="batchFilter" class="custom-select">
+            <option value="">All Batches</option>
+            {% for b in batches %}
+                <option value="{{ b }}">{{ b }}</option>
+            {% endfor %}
+        </select>
+
+        <select id="statusFilter" class="custom-select">
+            <option value="">All Status</option>
+            <option value="registered">✅ Registered</option>
+            <option value="pending">⏳ Not Registered</option>
+        </select>
+
+        <form method="GET" action="{% url 'export_alumni' %}" id="exportForm" style="margin-left: auto;">
+            <input type="hidden" name="course" id="courseName">
+            <input type="hidden" name="batch" id="batchName">
+            <input type="hidden" name="status" id="statusName">
+            <button type="submit" class="btn-export">⬇ Export Filtered Data</button>
+        </form>
+    </div>
+
+    <p style="margin-top:15px; font-size:12px; color:#888;">*Preview showing latest 5 entries only.</p>
+    <table class="preview-table" id="alumniTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Batch</th>
+                <th>Status</th>
+                <th>Designation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in recent_alumni %}
+            <tr data-course="{{ a.course }}" data-batch="{{ a.batch }}" data-status="{% if a.is_registered %}registered{% else %}pending{% endif %}">
+                <td>{{ a.name }}</td>
+                <td>{{ a.batch }}</td>
+                <td>
+                    {% if a.is_registered %}
+                        <span class="badge-reg">Registered</span>
+                    {% else %}
+                        <span class="badge-pen">Not Reg.</span>
+                    {% endif %}
+                </td>
+                <td>{{ a.current_designation }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4" class="empty-message">No alumni data available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Wall of Fame Section with LIVE FILTERING -->
+<div class="section-card">
+    <div class="section-header">
+        <div class="section-title">🏆 Wall of Fame Export</div>
+    </div>
+
+    <div class="filter-toolbar">
+        <select id="categoryFilter" class="custom-select">
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+                <option value="{{ cat.id }}">{{ cat.title }}</option>
+            {% endfor %}
+        </select>
+
+        <form method="GET" action="{% url 'export_wall' %}" id="wallExportForm" style="margin-left: auto;">
+            <input type="hidden" name="category" id="categoryName">
+            <button type="submit" class="btn-export">⬇ Export Wall of Fame</button>
+        </form>
+    </div>
+
+    <table class="preview-table" id="wofTable" style="margin-top:15px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for w in recent_wof %}
+            <tr data-category="{{ w.category.id }}">
+                <td>{{ w.name }}</td>
+                <td>{{ w.category.title }}</td>
+                <td>{{ w.position }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="3" class="empty-message">No Wall of Fame data available.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- LIVE FILTERING JAVASCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const courseFilter = document.getElementById('courseFilter');
+    const batchFilter = document.getElementById('batchFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const alumniTable = document.getElementById('alumniTable');
+    const wofTable = document.getElementById('wofTable');
+
+    // Alumni Live Filter
+    function filterAlumni() {
+        const selectedCourse = courseFilter.value.toLowerCase();
+        const selectedBatch = batchFilter.value.toLowerCase();
+        const selectedStatus = statusFilter.value.toLowerCase();
+        
+        const rows = alumniTable.querySelectorAll('tbody tr:not(:has(td.empty-message))');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const rowCourse = row.dataset.course?.toLowerCase() || '';
+            const rowBatch = row.dataset.batch?.toLowerCase() || '';
+            const rowStatus = row.dataset.status?.toLowerCase() || '';
+
+            const courseMatch = !selectedCourse || rowCourse.includes(selectedCourse);
+            const batchMatch = !selectedBatch || rowBatch.includes(selectedBatch);
+            const statusMatch = !selectedStatus || rowStatus === selectedStatus;
+
+            if (courseMatch && batchMatch && statusMatch) {
+                row.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+
+        // Update export form
+        document.getElementById('courseName').value = courseFilter.value;
+        document.getElementById('batchName').value = batchFilter.value;
+        document.getElementById('statusName').value = statusFilter.value;
+
+        // Show no results message if needed
+        if (visibleCount === 0 && rows.length > 0) {
+            alumniTable.querySelector('tbody').innerHTML += '<tr><td colspan="4" class="empty-message">No matching records found.</td></tr>';
+        }
+    }
+
+    // Wall of Fame Live Filter
+    function filterWOF() {
+        const selectedCategory = categoryFilter.value;
+        const rows = wofTable.querySelectorAll('tbody tr:not(:has(td.empty-message))');
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const rowCategory = row.dataset.category || '';
+
+            if (!selectedCategory || rowCategory === selectedCategory) {
+                row.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+
+        // Update export form
+        document.getElementById('categoryName').value = categoryFilter.value;
+
+        if (visibleCount === 0 && rows.length > 0) {
+            wofTable.querySelector('tbody').innerHTML += '<tr><td colspan="3" class="empty-message">No matching records found.</td></tr>';
+        }
+    }
+
+    // Event listeners
+    courseFilter.addEventListener('change', filterAlumni);
+    batchFilter.addEventListener('change', filterAlumni);
+    statusFilter.addEventListener('change', filterAlumni);
+    categoryFilter.addEventListener('change', filterWOF);
+});
+</script>
+
+{% endblock %}

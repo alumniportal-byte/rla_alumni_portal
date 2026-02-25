@@ -1,0 +1,90 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<style>
+    .category-tabs { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
+    .cat-card { background: white; padding: 15px 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-decoration: none; color: #333; font-weight: bold; border: 2px solid transparent; transition: 0.3s; min-width: 150px; text-align: center; }
+    .cat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+    .cat-card.active { background: #f8f9fa; border-color: #d4af37; color: #d4af37; }
+    .form-section { background: #fff; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .slider-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .slider-card { background: white; padding: 15px; border-radius: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+</style>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div class="form-section" style="flex: 1; min-width: 300px;">
+        <h4>📂 Bulk Upload</h4>
+        <form method="POST" enctype="multipart/form-data" class="custom-form">
+            {% csrf_token %}
+            {{ upload_form.as_p }}<br>
+            <button name="bulk_upload" class="btn-golden" style="width: 100%;">Upload Excel</button>
+        </form>
+    </div> 
+
+    <div class="form-section" style="flex: 2; min-width: 400px;">
+    <h4>{% if edit_id %}✏️ Edit Profile{% else %}👤 Add New Alumni{% endif %}</h4>
+    <form method="POST" action="" enctype="multipart/form-data" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;" class="custom-form">
+        {% csrf_token %}
+        
+        <input type="hidden" name="did" value="{{ edit_id|default:'' }}">
+        
+        <div>{{ form.name.label_tag }} {{ form.name }}</div>
+        <div>{{ form.category.label_tag }} {{ form.category }}</div>
+        <div>{{ form.course.label_tag }} {{ form.course }}</div>
+        <div>{{ form.batch.label_tag }} {{ form.batch }}</div>
+        <div style="grid-column: span 2;">{{ form.current_position.label_tag }} {{ form.current_position }}</div>
+        <div>{{ form.image.label_tag }} {{ form.image }}</div>
+        <div>{{ form.position.label_tag }} {{ form.position }}</div>
+
+        <div style="grid-column: span 2; text-align: center; margin-top: 10px;">
+            <button type="submit" name="save_single" class="btn-golden">
+                {% if edit_id %}Update Profile{% else %}Add to Wall{% endif %}
+            </button>
+            {% if edit_id %}
+                <a href="{% url 'wall_of_fame' %}" class="btn-danger" style="padding: 8px 15px; text-decoration:none; border-radius: 5px; margin-left: 10px; background: #666; color: white;">Cancel</a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+</div>
+
+<hr>
+
+<h3>Categories (Click to View)</h3>
+<div class="category-tabs">
+    <a href="?" class="cat-card {% if not selected_category %}active{% endif %}">Show All</a>
+    {% for c in categories %}
+    <a href="?category={{ c.id }}" class="cat-card {% if selected_category == c.id %}active{% endif %}">{{ c.title }}</a>
+    {% endfor %}
+</div>
+
+<div class="slider-grid">
+    {% for a in alumni %}
+    <div class="slider-card">
+        {% if a.image %}
+            <img src="{{ a.image.url }}" class="slider-img" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+        {% else %}
+            <div style="height:180px; background:#eee; display:flex; align-items:center; justify-content:center; border-radius:10px; color:#999;">No Image</div>
+        {% endif %}
+
+        <h4 style="margin: 10px 0 5px;">{{ a.name }}</h4>
+        <span style="background: #f0f0f0; padding: 2px 8px; border-radius: 4px; font-size: 11px; color: #d4af37;">{{ a.category.title }}</span>
+        <p style="color: #666; font-size: 13px; margin: 5px 0;">{{ a.current_position }}</p>
+        <p style="font-size: 12px; color: #888;">{{ a.course }} | {{ a.batch }}</p>
+
+        <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center; border-top: 1px solid #eee; padding-top: 10px;">
+            <a href="?edit={{ a.id }}" class="btn-edit" style="color: #673ab7; font-weight: bold; text-decoration: none;">Edit</a>
+            
+            <form method="POST" style="display:inline;" onsubmit="return confirm('Pakka delete karna hai?');">
+                {% csrf_token %}
+                <input type="hidden" name="did" value="{{ a.id }}">
+                <button name="delete" style="background:none; border:none; color:#dc3545; font-weight:bold; cursor:pointer;">Delete</button>
+            </form>
+        </div>
+    </div>
+    {% empty %}
+    <p style="grid-column: 1/-1; text-align: center; color: #999;">No alumni found.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

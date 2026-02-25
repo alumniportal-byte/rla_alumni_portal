@@ -1,0 +1,109 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<style>
+    /* Card ko thoda consistent banane ke liye */
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* height: 100%; agar grid use kar rahe ho */
+    }
+
+    .content-text {
+        text-align: justify;
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 10px;
+        line-height: 1.5;
+    }
+</style>
+<div class="form-card">
+   
+        <h3>👤 Add New Testimonial</h3>
+    
+<form method="POST" enctype="multipart/form-data" class="custom-form">
+{% csrf_token %}
+{{ form.as_p }}
+<br>
+<center><button name="upload" class="btn-golden">Add Testimonial</button></center>
+</form>
+</div>
+
+<div class="table-card mt-20">
+
+<h3>Testimonials</h3>
+
+<div class="slider-grid">
+
+{% for t in testimonials %}
+<div class="slider-card" >
+
+<a href="{{ t.linkedin }}" target="_blank">
+                <img src="{{ t.image.url }}" class="slider-img" title="Visit LinkedIn">
+            </a>
+<h4>{{ t.name }}</h4>
+<p>{{ t.course }}</p>
+<p>{{ t.batch }}</p>
+<div class="card">
+<div class="content-text">
+<p style="text-align: justify; font-size: small;">{{ t.message }}</p>
+</div></div>    
+<form method="POST">
+{% csrf_token %}
+<input type="hidden" name="tid" value="{{ t.id }}">
+{% if edit_id %}
+<input type="hidden" name="tid" value="{{ edit_id }}">
+{% endif %}
+<a href="?edit={{ t.id }}" class="btn-edit">Edit</a>
+<button name="delete" class="btn-danger confirm-delete">Delete</button>
+</form>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 🔥 Yahan Word Limit Set karein (e.g., 30 words kaafi rahte hain card ke liye)
+    const wordLimit = 60; 
+
+    const elements = document.querySelectorAll(".content-text");
+
+    elements.forEach(element => {
+        let fullText = element.innerText.trim();
+        let words = fullText.split(/\s+/); // Text ko words me toda
+
+        // Agar words limit se jyada hain to hi "Read More" layega
+        if (words.length > wordLimit) {
+            let visiblePart = words.slice(0, wordLimit).join(" ");
+            let hiddenPart = words.slice(wordLimit).join(" ");
+
+            element.innerHTML = `
+                <span>${visiblePart}</span><span class="dots">...</span>
+                <span class="more-text" style="display: none;"> ${hiddenPart}</span>
+                <br>
+                <a href="javascript:void(0);" class="read-more-btn" style="color: #800000; font-weight: bold; cursor: pointer; text-decoration: none; font-size: 14px;">Read More</a>
+            `;
+            
+            // Button ka click event
+            const btn = element.querySelector(".read-more-btn");
+            const moreText = element.querySelector(".more-text");
+            const dots = element.querySelector(".dots");
+
+            btn.addEventListener("click", function() {
+                if (moreText.style.display === "none") {
+                    moreText.style.display = "inline"; // Text dikhao
+                    dots.style.display = "none";       // Dots hatao
+                    btn.innerText = "Read Less";       // Button change karo
+                } else {
+                    moreText.style.display = "none";   // Text chupao
+                    dots.style.display = "inline";     // Dots wapis lao
+                    btn.innerText = "Read More";       // Button wapis change karo
+                }
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

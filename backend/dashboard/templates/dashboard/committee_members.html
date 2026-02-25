@@ -1,0 +1,47 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<div class="table-card">
+    <h3>👤 Add College Office Bearers</h3>
+
+    <form method="POST" enctype="multipart/form-data" class="custom-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <center>
+            <button name="upload" class="btn-golden">Add College Committee Members  </button>
+        </center>
+    </form>
+</div>
+<div class="table-card mt-20">
+<h3 >College Committee Members</h3>
+
+<div class="card-grid"> 
+    
+    {% for cm in members %}
+    <div class="member-card">
+        
+        {% if cm.image %}
+            <img src="{{ cm.image.url }}" class="member-img" alt="{{ cm.name }}">
+        {% endif %}
+
+        <h4>{{ cm.name }}</h4>
+        <p style="color: #800000; font-weight: bold;">{{ cm.designation }}</p>
+        <span style="display:block; margin-bottom: 15px; color: #666;">{{ cm.department }}</span>
+
+        <div style="display: flex; justify-content: center; gap: 10px;">
+            <a href="?edit={{ cm.id }}" class="btn-edit">Edit</a>
+            
+            <form method="POST" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="cmid" value="{{ cm.id }}">
+                <button name="delete" class="btn-danger confirm-delete">Delete</button>
+            </form>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div></div>
+
+{% endblock %}

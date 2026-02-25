@@ -1,0 +1,67 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<div class="table-card">
+    <h3>👤 {% if edit_id %}Update{% else %}Add{% endif %} Association Office Bearer</h3>
+
+    <form method="POST" enctype="multipart/form-data" class="custom-form">
+        {% csrf_token %}
+        
+        <input type="hidden" name="bid" value="{{ edit_id|default:'' }}">
+        
+        {{ form.as_p }}
+        <br>
+        <center>
+            <button type="submit" name="upload" class="btn-golden">
+                {% if edit_id %}Save Changes{% else %}Add Alumni Office Bearer{% endif %}
+            </button>
+            
+            {% if edit_id %}
+                <a href="{% url 'association_bearers' %}" class="btn-secondary" style="margin-left:10px; text-decoration:none; color:#666; border: 1px solid #ccc; padding: 5px 15px; border-radius: 4px;">Cancel Edit</a>
+            {% endif %}
+        </center>
+    </form>
+</div>
+
+<div class="table-card mt-20">
+    <h3>Office Bearers Directory</h3>
+    <div class="office-grid">
+        {% for b in bearers %}
+        <div class="office-card">
+            <div class="office-left">
+                {% if b.image %}
+                    <img src="{{ b.image.url }}" alt="{{ b.name }}">
+                {% else %}
+                    <div style="width:100%; height:150px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; border-radius:10px;">
+                        <span style="color:#aaa; font-size: 0.8rem;">No Photo</span>
+                    </div>
+                {% endif %}
+                
+                <center><h4 style="margin-top:10px;">{{ b.name }}</h4></center>
+                <center><p class="qualification">{{ b.qualification }}</p></center>
+            </div>
+
+            <div class="office-right">
+                <p class="designation" style="font-weight: bold; color: var(--maroon);">{{ b.designation }}</p>
+                <p class="message">{{ b.message }}</p>
+
+                <div class="actions" style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
+                    <a href="?edit={{ b.id }}" class="btn-edit" style="margin-right: 15px; text-decoration: none; font-weight: bold; color: #673ab7;">Edit</a>
+                    
+                    <form method="POST" style="display:inline;" onsubmit="return confirm('Bhai, pakka delete karna hai?');">
+                        {% csrf_token %}
+                        <input type="hidden" name="bid" value="{{ b.id }}">
+                        <button type="submit" name="delete" class="btn-danger" style="background: none; border: none; color: #d32f2f; font-weight: bold; cursor: pointer;">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <div style="text-align:center; padding:40px; color:#999; width:100%;">
+                <p>Abhi tak koi Office Bearer add nahi kiya gaya hai.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Home Slider{% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div class="table-card">
+
+    <h3>Add Slider Image</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.image }}
+        <button type="submit" name="upload" class="btn-golden">Upload</button>
+    </form>
+
+</div>
+
+<div class="table-card mt-20">
+    <h3>Home Slider Images</h3>
+
+    <div class="slider-grid">
+
+        {% for s in sliders %}
+        <div class="slider-card">
+
+            <img src="{{ s.image.url }}" class="slider-img">
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="slider_id" value="{{ s.id }}">
+                <button name="delete" class="btn-danger confirm-delete">Delete</button>
+            </form>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+    </table>
+</div>
+
+{% endblock %}

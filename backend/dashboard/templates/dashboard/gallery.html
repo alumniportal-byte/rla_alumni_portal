@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+
+<div class="table-card" >
+    <h2>📸 Gallery Dashboard</h2>
+
+  {% if form.errors %}
+<div class="alert alert-danger" style="background:#ffdede; padding:10px; border-radius:5px; color:red; margin-bottom:10px;">
+    <strong>Error:</strong> {{ form.errors }}
+</div>
+{% endif %}
+    
+    <form method="POST" enctype="multipart/form-data" class="p-3" style="background:#f9f9f9; border-radius:10px;" class="custom-form">
+        {% csrf_token %}
+        
+        <div style="display:flex; gap:15px; margin-bottom:15px;">
+            <div style="flex:1;">
+                <label>Existing Folder</label>
+                {{ form.folder }}
+            </div>
+            <div style="flex:1;">
+                <label>New Folder Name</label>
+                {{ form.new_folder }}
+            </div>
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label>Select Images (Hold Ctrl for multiple)</label>
+            {{ form.images }}
+        </div>
+
+        <button type="submit" name="upload" value="1" class="btn-golden" style="width:100%;">Upload Images</button>
+    </form>
+</div>
+
+<hr>
+
+<h3>📂 Albums (Click to Edit)</h3>
+<div class="year-grid mt-20">
+    {% for f in folders %}
+    <div class="year-card" style="position:relative;">
+        
+        <a href="{% url 'folder_detail' f.id %}" style="text-decoration:none; color:inherit; display:block;">
+            <h4>{{ f.title }}</h4>
+            <p>{{ f.images.count }} Images</p>
+        </a>
+
+        <form method="POST" style="margin-top:10px;">
+            {% csrf_token %}
+            <input type="hidden" name="fid" value="{{ f.id }}">
+            <button type="submit" name="delete_folder" value="1" class="btn-danger confirm-delete" style="padding:5px 10px; font-size:12px;">Delete Folder</button>
+        </form>
+
+    </div>
+    {% empty %}
+    <p>No albums found.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

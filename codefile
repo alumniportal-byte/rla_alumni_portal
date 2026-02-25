@@ -1,0 +1,14 @@
+cd backend
+python -m venv venv
+venv\Scripts\activate
+
+django-admin startproject config .
+python manage.py runserver
+
+cd ../frontend
+npx create-next-app@latest .
+npm run dev
+backend/config/settings.py
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser

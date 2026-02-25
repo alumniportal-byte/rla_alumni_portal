@@ -1,0 +1,14 @@
+<form method="POST">
+    {% csrf_token %}
+    <h3>🛡️ Configure Alumni Table Columns</h3>
+    
+    <label><input type="checkbox" name="show_batch" {% if settings.show_batch %}checked{% endif %}> Show Batch</label><br>
+    
+    <label><input type="checkbox" name="show_course" {% if settings.show_course %}checked{% endif %}> Show Course</label><br>
+    
+    <label><input type="checkbox" name="show_designation" {% if settings.show_designation %}checked{% endif %}> Show Designation</label><br>
+    
+    <label><input type="checkbox" name="show_company" {% if settings.show_company %}checked{% endif %}> Show Company</label><br>
+
+    <button type="submit" class="btn-save">Save Settings</button>
+</form>
