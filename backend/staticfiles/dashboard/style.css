@@ -1,0 +1,594 @@
+:root {
+    --primary-color: #800000;
+    --secondary-color: #f4f4f4;
+    --golden: #d4af37;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* LAYOUT */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* FOOTER */
+.dashboard-footer {
+    margin-top: 180px;          /* Content se thoda dur rakhega */
+    padding: 20px 0;           /* Upar-neeche thoda space */
+    text-align: center;        /* Text beech mein */
+    color: #666;               /* Thoda light grey color */
+    font-size: 14px;           /* Font size chota */
+    border-top: 1px solid #eee; /* Upar ek halki line sundarta ke liye */
+}
+
+
+/* STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid var(--golden);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* TABLE */
+.table-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.table-card h3 {
+    margin-bottom: 15px;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dashboard-table th {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px;
+    text-align: left;
+}
+
+.dashboard-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-table tr:hover {
+    background: #fafafa;
+}
+
+/* BADGES */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.success {
+    background: #e6f4ea;
+    color: #1e7e34;
+}
+
+.badge.danger {
+    background: #fdecea;
+    color: #a71d2a;
+}
+.btn-golden{
+    background: var(--golden);
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+.btn-golden:hover{
+    background:#c19c2f;
+}
+.mt-20{
+    margin-top:20px;
+}
+
+/* SLIDER GRID */
+.slider-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+
+.slider-card{
+    background:var(--white);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+    transition:0.3s;
+    text-align:center;
+    padding-bottom:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.slider-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.12);
+}
+
+.slider-img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+}
+
+/* DELETE BUTTON */
+.btn-danger{
+    margin-top:10px;
+    background:#b02a37;
+    color:#fff;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.btn-danger:hover{
+    background:#8b1e2a;
+}
+/* ADMIN FORM DESIGN */
+.form-card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    max-width:600px;
+}
+
+/* FORM CARD DESIGN */
+.form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    max-width: 600px; /* Jada chouda na ho */
+    margin: 0 auto;   /* Center me laye */
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.card-header {
+    background: var(--primary-color); /* Maroon color */
+    padding: 20px 25px;
+    color: #fff;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.custom-form {
+    padding: 30px;
+}
+
+/* FORM GROUPS */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+    font-size: 14px;
+}
+
+/* INPUTS & TEXTAREA */
+.custom-form input[type="text"],
+.custom-form input[type="url"],
+.custom-form input[type="file"],
+.custom-form input[type="number"],
+.custom-form input[type="email"],
+.custom-form textarea,
+.custom-form .file-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+/* Checkbox (Boolean) Styling */
+.custom-form input[type="checkbox"] {
+    width: 20px;          /* Size fix karein */
+    height: 20px;   
+    margin-right: 10px;   /* Label se thoda dur rakhein */
+    vertical-align: middle; /* Text ke beech me align karein */
+    cursor: pointer;
+    
+    /* Checkbox ka color badalne ke liye (Modern Browsers) */
+    accent-color: var(--golden); /* Golden tick background */
+}
+
+/* Checkbox ke label ko thoda clean dikhane ke liye */
+.custom-form label {
+    font-weight: 600;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+/* Focus Effect (Jab click karein) */
+.custom-form input:focus,
+.custom-form textarea:focus {
+    border-color: var(--golden); /* Golden border on focus */
+    background: #fff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1); /* Halka sa golden glow */
+}
+
+/* TWO COLUMNS (Course & Batch) */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1; /* Dono barabar jagah lenge */
+}
+
+/* FILE INPUT STYLING */
+.file-input {
+    background: #fff;
+    padding: 10px;
+}
+
+/* BUTTON FULL WIDTH */
+.w-100 {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Responsive (Mobile ke liye) */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column; /* Mobile pe ek ke neeche ek */
+        gap: 0;
+    }
+}
+/* ASSOCIATION OFFICE BEARERS */
+.office-card{
+    display:flex;
+    gap:25px;
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+    align-items:center;
+}
+
+.office-left img{
+    width:160px;
+    height:160px;
+    border-radius:12px;
+    object-fit:cover;
+    border:4px solid #d4af37;
+}
+
+.office-right h4{
+    color:#800000;
+    margin-bottom:5px;
+}
+
+.office-right .designation{
+    color:#d4af37;
+    font-weight:600;
+}
+
+.office-right .message{
+    margin-top:10px;
+    line-height:1.6;
+}   
+.btn-edit{
+    background:#800000;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:6px;
+    text-decoration:none;
+    margin-right:10px;
+}
+
+.btn-edit:hover{
+    background:#5a0000;
+}
+
+/* YEAR GRID */
+.year-grid{
+    margin-top:25px;
+}
+
+/* YEAR CARD */
+.year-card{
+    background:var(--white);
+    border-left:6px solid var(--golden);
+    margin-bottom:20px;
+    border-radius:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    cursor:pointer;
+    overflow:hidden;
+}
+
+/* HEADER */
+.year-header{
+    padding:18px 22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(90deg,#800000,#5a0000);
+    color:#fff;
+}
+
+.year-header h3{
+    margin:0;
+    color:var(--golden);
+}
+
+/* BODY (HIDDEN) */
+.year-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+    padding:0 20px;
+}
+
+.year-card.active .year-body{
+    max-height:600px;
+    padding:20px;
+}   
+
+/* ForeignKey (Dropdown) ko sundar banane ke liye */
+.custom-form select {
+    width: 100%;             /* Puri choudai lega */
+    padding: 10px 15px;      /* Andar ka space taaki chipka hua na lage */
+    border: 1px solid #ccc;  /* Halka grey border (Jaisa baaki inputs ka hai) */
+    border-radius: 5px;      /* Kone gol karne ke liye */
+    background-color: #fff;  /* White background */
+    font-size: 16px;         /* Text ka size */
+    color: #333;             /* Text ka rang */
+    cursor: pointer;         /* Mouse le jane par hath ka nishaan */
+    
+    /* Standard browser style hatane aur clean dikhane ke liye (Optional) */
+    outline: none;
+    height: 45px;            /* Height fix taaki baaki inputs barabar dikhe */
+}
+
+/* Jab click karein to border ka rang badle (Focus Effect) */
+.custom-form select:focus {
+    border-color: #bfa15f;   /* Golden color (Aapki theme ke hisaab se) */
+    box-shadow: 0 0 5px rgba(191, 161, 95, 0.5); /* Halka glow */
+}
+
+/* MEMBER GRID */
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,3fr));
+    gap:20px;
+}
+
+/* MEMBER CARD */
+.member-card{
+    background:var(--white);
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+    border-top:5px solid var(--primary-color);
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.member-card:hover{
+    transform:translateY(-6px);
+    border-top:5px solid var(--golden);
+}
+
+/* IMAGE */
+.member-img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:15px;
+    border:4px solid var(--golden);
+}
+
+.member-card h4{
+    color:var(--primary-color);
+    margin-bottom:5px;
+}
+
+.member-card p{
+    font-weight:600;
+}
+
+/* FILTER BAR */
+.filter-bar{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.filter-bar input,
+.filter-bar select{
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+.btn-golden{
+    background:var(--golden);
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/*wall of fame*/
+.year-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:20px;
+}
+
+.year-card{
+background:var(--white);
+padding:20px;
+border-radius:18px;
+text-align:center;
+font-weight:600;
+border-left:6px solid var(--golden);
+box-shadow:0 4px 12px rgba(0,0,0,0.06);
+transition:0.3s;
+text-decoration:none;
+color:var(--primary-color);
+}
+
+.year-card:hover{
+transform:translateY(-6px);
+}
+
+/* Custom Dashboard Theme Colors */
+:root {
+    --maroon: #800000;
+    --gold: #d4af37;
+    --light-gray: #f8f9fa;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card-header.bg-maroon {
+    background-color: var(--maroon) !important;
+    color: white !important;
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: 600;
+}
+
+/* Form Controls Styling */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.form-control:focus {
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 0.2rem rgba(128, 0, 0, 0.25);
+}
+
+/* Table Styling */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead.table-dark {
+    background-color: #212529 !important;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 12px 15px;
+}
+
+/* Action Buttons */
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 600;
+}
+
+.btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    border-radius: 6px;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+    border-radius: 6px;
+}
+
+/* Badges */
+.badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Image Thumbnails */
+.rounded-circle {
+    border: 2px solid var(--gold);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Floating Animation for Cards */
+.shadow-sm:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}

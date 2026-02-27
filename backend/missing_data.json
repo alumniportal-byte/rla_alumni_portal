@@ -1,0 +1,2177 @@
+[
+{
+  "model": "alumniportal.committeemember",
+  "pk": 6,
+  "fields": {
+    "committee": 3,
+    "role": "Convenor",
+    "name": "Ms. Seema Joshi",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 7,
+  "fields": {
+    "committee": 3,
+    "role": "Co-Convenor",
+    "name": "Dr. Vandana Gupta",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 8,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Dr. Deepti Bhardwaj",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 9,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Dr. Ritambhara Mishra",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 10,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Dr. Sarbari Nag",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 11,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Mr. Anil Bhatt",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 12,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 13,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Dr. Sunila Hooda",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 14,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Ms. Sakshi Sahni",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 15,
+  "fields": {
+    "committee": 3,
+    "role": "Member",
+    "name": "Mr. Basant Mishra",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 16,
+  "fields": {
+    "committee": 4,
+    "role": "Convenor",
+    "name": "Ms. Seema Joshi",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 17,
+  "fields": {
+    "committee": 4,
+    "role": "Co-Convenor",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 18,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Dr. Deepti Bhardwaj",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 19,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Dr. Salome John",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 20,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Mr. Anil Bhatt",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 21,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Dr. Sunila Hooda",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 22,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Ms. Sakshi Sahni",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 23,
+  "fields": {
+    "committee": 4,
+    "role": "Member",
+    "name": "Dr. Dinkar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 24,
+  "fields": {
+    "committee": 5,
+    "role": "Convenor",
+    "name": "Ms Deepti Bhardwaj",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 25,
+  "fields": {
+    "committee": 5,
+    "role": "Co-Convenor",
+    "name": "Dr Vandana Gandotra",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 26,
+  "fields": {
+    "committee": 5,
+    "role": "Member",
+    "name": "Mr. Anil Bhat",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 27,
+  "fields": {
+    "committee": 5,
+    "role": "Member",
+    "name": "Dr Salome John",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 28,
+  "fields": {
+    "committee": 5,
+    "role": "Member",
+    "name": "Dr Ravish Lal",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 29,
+  "fields": {
+    "committee": 6,
+    "role": "Convenor",
+    "name": "Dr. Deepti Bhardwaj",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 30,
+  "fields": {
+    "committee": 6,
+    "role": "Co-Convenor",
+    "name": "Mr. Anil Bhatt",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 31,
+  "fields": {
+    "committee": 6,
+    "role": "Member",
+    "name": "Dr. Salome John",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 32,
+  "fields": {
+    "committee": 7,
+    "role": "Convenor",
+    "name": "Mr. Rajiv Kumar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 33,
+  "fields": {
+    "committee": 7,
+    "role": "Co-Convenor",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 34,
+  "fields": {
+    "committee": 7,
+    "role": "Member",
+    "name": "Dr. Sanjay Kumar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 35,
+  "fields": {
+    "committee": 7,
+    "role": "Member",
+    "name": "Dr. Dileep",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 36,
+  "fields": {
+    "committee": 7,
+    "role": "Member",
+    "name": "Ms. Sakshi Taaresh Khanna",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 37,
+  "fields": {
+    "committee": 7,
+    "role": "Member",
+    "name": "Dr. Ritu Vats",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 38,
+  "fields": {
+    "committee": 8,
+    "role": "Convenor",
+    "name": "Mr. Rajiv Kumar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 39,
+  "fields": {
+    "committee": 8,
+    "role": "Co-Convenor",
+    "name": "Dr. Narender Kumar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 40,
+  "fields": {
+    "committee": 8,
+    "role": "Member",
+    "name": "Mr. Basant Mishra",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 41,
+  "fields": {
+    "committee": 8,
+    "role": "Member",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 42,
+  "fields": {
+    "committee": 8,
+    "role": "Member",
+    "name": "Ms. Sakshi Taaresh Khanna",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 43,
+  "fields": {
+    "committee": 8,
+    "role": "Member",
+    "name": "Dr. Ritu Vats",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 44,
+  "fields": {
+    "committee": 9,
+    "role": "Convenor",
+    "name": "Mr. Rajiv Kumar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 45,
+  "fields": {
+    "committee": 9,
+    "role": "Co-Convenor",
+    "name": "Dr. Sarbari Nag",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 46,
+  "fields": {
+    "committee": 9,
+    "role": "Member",
+    "name": "Dr. Salome John",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 47,
+  "fields": {
+    "committee": 9,
+    "role": "Member",
+    "name": "Dr. Manvesh Nath Das",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 48,
+  "fields": {
+    "committee": 9,
+    "role": "Member",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 49,
+  "fields": {
+    "committee": 9,
+    "role": "Member",
+    "name": "Ms. Sakshi Taaresh Khanna",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 50,
+  "fields": {
+    "committee": 9,
+    "role": "Member",
+    "name": "Dr. Ritu Vats",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 51,
+  "fields": {
+    "committee": 10,
+    "role": "Convenor",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 52,
+  "fields": {
+    "committee": 10,
+    "role": "Co-Convenor",
+    "name": "Ms. Neera Pal",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 53,
+  "fields": {
+    "committee": 10,
+    "role": "Member",
+    "name": "Dr. Sarbari Nag",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 54,
+  "fields": {
+    "committee": 10,
+    "role": "Member",
+    "name": "Dr. Suneyana Sharma",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 55,
+  "fields": {
+    "committee": 10,
+    "role": "Member",
+    "name": "Ms. Sakshi Taaresh Khanna",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 56,
+  "fields": {
+    "committee": 10,
+    "role": "Member",
+    "name": "Ms. Prerna Diwan",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 57,
+  "fields": {
+    "committee": 1,
+    "role": "Convenor",
+    "name": "Ms. Sakshi Taaresh Khanna",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 58,
+  "fields": {
+    "committee": 1,
+    "role": "Co-Convenor",
+    "name": "Dr. Urvashi Kuhad",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 59,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Ms. Neera Pal",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 60,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Dr. Ritu Vats",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 61,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Dr. Alankar",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 62,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Ms. Neena Mittal",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 63,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Ms. Archana Gaur",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 64,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Dr. Rita Jain",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.committeemember",
+  "pk": 65,
+  "fields": {
+    "committee": 1,
+    "role": "Member",
+    "name": "Dr. Seema Bharti",
+    "department": "na",
+    "position": 0
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 1,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "Beyond Borders",
+    "organized_by": "Department of Statistics",
+    "image": "media/event_photos/beyond_border_fen6rz",
+    "report_pdf": "media/event_reports/report_of_alumni.docx_bnehlm",
+    "date": "2025-10-01",
+    "resource_person": "Ms. Vandita Changrani",
+    "batch": "2019-2022"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "year_session": "2025-2026",
+    "title": "Anti-Microbial Resistance",
+    "organized_by": "Department of Microbiology",
+    "image": "media/event_photos/amr_week_yobkt4",
+    "report_pdf": "media/event_reports/Report_on_AMR_Talk_and_AT_.docx_el9sgn",
+    "date": "2025-11-18",
+    "resource_person": "Mr. Lalit Mohan And Dr. Vaibhav Nain",
+    "batch": "2017-2020 and 2013-2016"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 3,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "Interactive  Alumni Session",
+    "organized_by": "Department of Commerce",
+    "image": "media/event_photos/interactive_alumni_session__iqkxrv",
+    "report_pdf": "media/event_reports/alumni_talk__report__vljjok",
+    "date": "2026-01-19",
+    "resource_person": "Ms. Sakshi Bathla, Mr. Anurag Mishra and  Ms. Arzoo Gangwar",
+    "batch": "2018-2021, 2018-2021 and 2014-2017"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 4,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "Alumni Interaction",
+    "organized_by": "Department of English",
+    "image": "media/event_photos/Alumni_Interaction__u7s2vd",
+    "report_pdf": "media/event_reports/Alumni_Interaction_eokkjb",
+    "date": "2025-11-12",
+    "resource_person": "Mr. Puneet Saraswat",
+    "batch": "2012-2015"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 5,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "Alumni Interaction Session",
+    "organized_by": "Department of Microbiology",
+    "image": "media/event_photos/Alumni_interaction_session_cj3iko",
+    "report_pdf": "media/event_reports/Report_on_AT_Sandeep_Patra.docx_gzq9hx",
+    "date": "2026-01-02",
+    "resource_person": "Mr. Sandeep Patra",
+    "batch": "2020-2023"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 6,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "Career Guidance Session",
+    "organized_by": "Department of Microbiology",
+    "image": "media/event_photos/Career_Guidance_w1le89",
+    "report_pdf": "media/event_reports/Report_on_AT_Yugansh_Gupta.docx_compressed_i2blka",
+    "date": "2025-10-07",
+    "resource_person": "Mr. Yugansh Gupta",
+    "batch": "2019-2022"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 7,
+  "fields": {
+    "category": 1,
+    "year_session": "2025-2026",
+    "title": "Decoding Swadeshi in a Changing Global Order",
+    "organized_by": "Department of Political Science",
+    "image": "media/event_photos/decoding_swedeshi_my4kns",
+    "report_pdf": "media/event_reports/Rohin_Kumar_-_Alumni_Talk_Pol_Sc_Dept_2025_Sept.docx_jq9n4v",
+    "date": "2025-09-26",
+    "resource_person": "Mr. Rohin Kumar",
+    "batch": "2013-2016"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 8,
+  "fields": {
+    "category": 3,
+    "year_session": "2025-2026",
+    "title": "How to learn Data Science in the age of AI",
+    "organized_by": "Department of Statistics",
+    "image": "media/event_photos/how_to_learn_datascience_tusb7g",
+    "report_pdf": "media/event_reports/Speaker_Sessions_Report.docx_compressed_bjdylt",
+    "date": "2025-11-21",
+    "resource_person": "Mr. Aditya Bhatt",
+    "batch": "2019-2022"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 9,
+  "fields": {
+    "category": 1,
+    "year_session": "2025-2026",
+    "title": "Role of Demographers",
+    "organized_by": "Department of Statistics",
+    "image": "media/event_photos/role_of_demographers_lqxbmz",
+    "report_pdf": "media/event_reports/demography.docx_bteqmd",
+    "date": "2025-12-28",
+    "resource_person": "Mr. Mausam Kumar Garg",
+    "batch": "2009-2012"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 10,
+  "fields": {
+    "category": 1,
+    "year_session": "2025-2026",
+    "title": "STEPPING STONES TO SUCCESS",
+    "organized_by": "Department of Computer Science",
+    "image": "media/event_photos/stepping_stone_nx1tmt",
+    "report_pdf": "media/event_reports/stepping_stone_to_success_report__1_compressed_ifwjf6",
+    "date": "2025-10-06",
+    "resource_person": "Varun Kumar Mishra and Sudeept Naval Mishra",
+    "batch": "2017-2020"
+  }
+},
+{
+  "model": "alumniportal.alumnievent",
+  "pk": 11,
+  "fields": {
+    "category": 1,
+    "year_session": "2025-2026",
+    "title": "Alumni Connect:From campus to career",
+    "organized_by": "Department of Computer Science",
+    "image": "media/event_photos/Alumni_connect_milwrl",
+    "report_pdf": "media/event_reports/AlumniTalk17Sept2025Report_compressed_yfxk67",
+    "date": "2025-09-17",
+    "resource_person": "Mr. Vashu T. and Mr. Anukool Johri",
+    "batch": "2021-2024"
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 49,
+  "fields": {
+    "category": 20,
+    "name": "Dr. Rajan Gupta",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2005-2008",
+    "current_position": "Director,Deutsche Telekom Digital Labs",
+    "image": "media/distinguished/Ranjan_Gupta_u0iwf6",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 50,
+  "fields": {
+    "category": 20,
+    "name": "Lavanya Leo Rastogi",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "-",
+    "current_position": "Founder & CEO of Soul Spring",
+    "image": "media/distinguished/Lavanya_Leo_Rastogi_qaeskb",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 51,
+  "fields": {
+    "category": 20,
+    "name": "Amit  Sachdev",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "1996-1999",
+    "current_position": "Deployment Project Manager,Orange Business",
+    "image": "media/distinguished/amit_sachdeva_s3xq4w",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 52,
+  "fields": {
+    "category": 20,
+    "name": "Parasuraman  Nurani",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "1993-1996",
+    "current_position": "Vice-President,SGX-Singapore Exchange Limited",
+    "image": "media/distinguished/parasuraman_Nurani_w5dhpm",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 53,
+  "fields": {
+    "category": 18,
+    "name": "Kunal",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "1997-2000",
+    "current_position": "IAS-Joint Secretary,Minsitry of sports and youth affairs",
+    "image": "media/distinguished/Kunal_K_ghctzb",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 54,
+  "fields": {
+    "category": 20,
+    "name": "Raja Bose",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2002-2005",
+    "current_position": "Global Vice President, Cerencev AI, USA",
+    "image": "media/distinguished/Raja_Bose_alkyzu",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 55,
+  "fields": {
+    "category": 21,
+    "name": "Vaibhav Manu Srivastav",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2007-2010",
+    "current_position": "Advocate, Supreme Court",
+    "image": "media/distinguished/vaibhav_manu_lnb3vb",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 56,
+  "fields": {
+    "category": 20,
+    "name": "Prafful Mishra",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2006-2009",
+    "current_position": "Engagement Manager,TCS,UK",
+    "image": "media/distinguished/prafull_mishra_l6k9s6",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 57,
+  "fields": {
+    "category": 20,
+    "name": "Hridesh khanna",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2007-2010",
+    "current_position": "Vice President, HDFC Bank Ltd",
+    "image": "media/distinguished/Hirdesh_Khanna_ks8rbe",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 58,
+  "fields": {
+    "category": 20,
+    "name": "Sweta Puppet",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2007-2010",
+    "current_position": "Assistant Vice President,HSBC, USA",
+    "image": "media/distinguished/sweta_puppet_vyhiie",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 59,
+  "fields": {
+    "category": 20,
+    "name": "Saumyadeep Maiti",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2007-2010",
+    "current_position": "Director,Data Science, Tredence Inc. USA",
+    "image": "media/distinguished/soumyadee_maiti_m1wjyg",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 60,
+  "fields": {
+    "category": 20,
+    "name": "Rishi Raj",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2007-2010",
+    "current_position": "Director, Data Science & Analytics, GALE, Canada",
+    "image": "media/distinguished/Rishi_Raj_yk65ik",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 61,
+  "fields": {
+    "category": 20,
+    "name": "Rachit Madan",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2009-2012",
+    "current_position": "Head of Marketing Risk Modelling, Phoenix Group, UK",
+    "image": "media/distinguished/rachit_madan_grq3pm",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 62,
+  "fields": {
+    "category": 23,
+    "name": "Monika Walia",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2009-2012",
+    "current_position": "Environment Epidemiologist And Public health Researcher, University of Queensland, UK",
+    "image": "media/distinguished/monika_vilya_gmbojp",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 63,
+  "fields": {
+    "category": 20,
+    "name": "Rachita Gupta",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2009-2012",
+    "current_position": "Assistant Vice President ,CCB Risk, JPMC Bengaluru",
+    "image": "media/distinguished/rachita_gupta_meyi3w",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 64,
+  "fields": {
+    "category": 18,
+    "name": "Jyoti Nagarkoti",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2014-2017",
+    "current_position": "Assistant Director (ISS) , Ministry of finance",
+    "image": "media/distinguished/Jyoti_Nagarkoti_pe6gq3",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 65,
+  "fields": {
+    "category": 20,
+    "name": "Sundeep Madan",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "1996-1999",
+    "current_position": "Senior Consultant , TCS",
+    "image": "media/distinguished/sundeep_madan_zqrwwx",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 66,
+  "fields": {
+    "category": 25,
+    "name": "Surender K Mishra",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "1899-1992",
+    "current_position": "Eminent Contemporary Artist",
+    "image": "media/distinguished/SURENDER_K_MISHRA_huswgq",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 67,
+  "fields": {
+    "category": 20,
+    "name": "Manish Kumar",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2005-2008",
+    "current_position": "Vice President, JP Morgan Chase",
+    "image": "media/distinguished/manish-kumar_67_mhlxjq",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 68,
+  "fields": {
+    "category": 20,
+    "name": "Ruchira Suri",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2008-2011",
+    "current_position": "Senior Consultant, NTTDATA",
+    "image": "media/distinguished/ruchira-suri_68_xaplf9",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 69,
+  "fields": {
+    "category": 20,
+    "name": "Angad Srivastava",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2009-2012",
+    "current_position": "Data Analytics & AI/ML, Amazon Web",
+    "image": "media/distinguished/angad-srivastava_69_rzgi9i",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 70,
+  "fields": {
+    "category": 20,
+    "name": "Shashwat Razdan",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2013-2017",
+    "current_position": "Senior Software Engineer, Google",
+    "image": "media/distinguished/shashwat-razdan_70_zvaa6t",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 71,
+  "fields": {
+    "category": 20,
+    "name": "Aveena Popli",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2012-2015",
+    "current_position": "Senior Data Engineer, Goldman Sachs",
+    "image": "media/distinguished/aveena-popli_71_sgzb2d",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 72,
+  "fields": {
+    "category": 20,
+    "name": "Pooja Vashishta",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2012-2015",
+    "current_position": "Technical Solutions Engineer, Google",
+    "image": "media/distinguished/pooja-vashishta_72_reuib9",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 73,
+  "fields": {
+    "category": 20,
+    "name": "Rahul Chauhan",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2012-2015",
+    "current_position": "Lead Software Engineer, Adobe India",
+    "image": "media/distinguished/rahul-chauhan_73_w4pg8r",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 74,
+  "fields": {
+    "category": 20,
+    "name": "Tanmay Chanda",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2014-2017",
+    "current_position": "Cloud Engineer, AppDev and AppMOD",
+    "image": "media/distinguished/tanmay-chanda_74_xl5yxy",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 75,
+  "fields": {
+    "category": 20,
+    "name": "Veeru Teckchandani",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2015-2018",
+    "current_position": "Software Developer, Amazon Music",
+    "image": "media/distinguished/veeru-teckchandani_75_cxgkmp",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 76,
+  "fields": {
+    "category": 20,
+    "name": "Nikhil Pathak",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2017-2020",
+    "current_position": "Senior Software Engineer,Tech Mahindra",
+    "image": "media/distinguished/nikhil-pathak_76_kqsuhx",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 77,
+  "fields": {
+    "category": 20,
+    "name": "Ankur Sachdeva",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2009-2012",
+    "current_position": "Engineering Manager, Arcesium",
+    "image": "media/distinguished/ankur-sachdeva_77_vosrfo",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 78,
+  "fields": {
+    "category": 20,
+    "name": "Arushi",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2019-2022",
+    "current_position": "Consultant Data Science, IBM India",
+    "image": "media/distinguished/arushi_78_jmbl7m",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 79,
+  "fields": {
+    "category": 20,
+    "name": "Pooja Sahdev",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2012-2015",
+    "current_position": "Senior Associate, Bank Of New York Melon",
+    "image": "media/distinguished/pooja-sahdev_79_qzg8oy",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 80,
+  "fields": {
+    "category": 20,
+    "name": "Sagar Mehra",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2014-2017",
+    "current_position": "SDS EXR Manager, Amazon India",
+    "image": "media/distinguished/sagar-mehra_80_jbdbab",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 81,
+  "fields": {
+    "category": 20,
+    "name": "Anveesh Sharma",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2013-2017",
+    "current_position": "Lead Consultant, Generative AI",
+    "image": "media/distinguished/anveesh-sharma_81_wv9vbb",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 82,
+  "fields": {
+    "category": 20,
+    "name": "Alok Saini",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2010-2013",
+    "current_position": "SCM Lead Analyst, Bechtel",
+    "image": "media/distinguished/alok-saini_82_f62o4s",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 83,
+  "fields": {
+    "category": 20,
+    "name": "Hitesh Kochhar",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2010-2013",
+    "current_position": "Software Development Engineer, Expedia Group",
+    "image": "media/distinguished/hitesh-kochhar_83_byoriq",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 84,
+  "fields": {
+    "category": 20,
+    "name": "Sanya Pandey",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2021-2024",
+    "current_position": "Co-Founder of Maruth Labs",
+    "image": "media/distinguished/sanya-pandey_84_ax83hz",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 85,
+  "fields": {
+    "category": 20,
+    "name": "Rahul Gulia",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2017-2020",
+    "current_position": "Data Scientist, Flipkart",
+    "image": "media/distinguished/rahul-gulia_85_ocbczv",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 86,
+  "fields": {
+    "category": 20,
+    "name": "Himanshu Gaba",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2013-2017",
+    "current_position": "Co-Founder of Adsify",
+    "image": "media/distinguished/himanshu-gaba_86_g1mvvd",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 87,
+  "fields": {
+    "category": 18,
+    "name": "Dr. Gargi Rai",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2006-2009",
+    "current_position": "Senior Geologist, Ministry of Mines",
+    "image": "media/distinguished/dr-gargi-rai_87_fepjtw",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 88,
+  "fields": {
+    "category": 18,
+    "name": "Saweeta Kumari",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2006-2009",
+    "current_position": "Senior Geologist, Geology Survey of India",
+    "image": "media/distinguished/saweeta-kumari_88_ravima",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 89,
+  "fields": {
+    "category": 18,
+    "name": "Gautam Saxena",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2006-2009",
+    "current_position": "Senior Geologist, Geology Survey of India",
+    "image": "media/distinguished/gautam-saxena_89_rjy1wz",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 90,
+  "fields": {
+    "category": 19,
+    "name": "Dr. Mayuri Pandey",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2006-2009",
+    "current_position": "Assistant Professor, Institute of Science, Banaras Hindu University",
+    "image": "media/distinguished/dr-mayuri-pandey_90_kiixre",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 91,
+  "fields": {
+    "category": 18,
+    "name": "Neety Nagi",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2009-2012",
+    "current_position": "Deputy Director, Scientist C, Minsitry of Jal Shakti",
+    "image": "media/distinguished/neety-nagi_91_nmbdsh",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 92,
+  "fields": {
+    "category": 18,
+    "name": "Christy Tom",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2010-2013",
+    "current_position": "Geologist, Ministry of Mines",
+    "image": "media/distinguished/christy-tom_92_a75ght",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 93,
+  "fields": {
+    "category": 18,
+    "name": "Priyanka Jha",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2010-2013",
+    "current_position": "Geologist (Group 'A' Gazetted), Geology Survey of India",
+    "image": "media/distinguished/priyanka-jha_93_cicmhj",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 94,
+  "fields": {
+    "category": 23,
+    "name": "Solomon Douglas Jala",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2012-2015",
+    "current_position": "Senior Geologist, WON basin",
+    "image": "media/distinguished/solomon-douglas-jala_94_j0oowb",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 95,
+  "fields": {
+    "category": 18,
+    "name": "Priya Deepika",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2012-2015",
+    "current_position": "Mineral Development Officer, Mines and Geology Department",
+    "image": "media/distinguished/priya-deepika_95_afvbqd",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 96,
+  "fields": {
+    "category": 18,
+    "name": "Nupur Pant",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2013-2016",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/nupur-pant_96_j7tlx4",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 97,
+  "fields": {
+    "category": 19,
+    "name": "Dr. Nitin Khandelwal",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2014-2017",
+    "current_position": "Assistant Professor, IIT Roorkee",
+    "image": "media/distinguished/dr-nitin-khandelwal_97_cejpik",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 98,
+  "fields": {
+    "category": 18,
+    "name": "Chandan Kumar",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2014-2017",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/chandan-kumar_98_swjcaq",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 99,
+  "fields": {
+    "category": 18,
+    "name": "Rinki Kumari",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2014-2017",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/rinki-kumari_99_f8asdu",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 100,
+  "fields": {
+    "category": 20,
+    "name": "Tanya Singh",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2015-2018",
+    "current_position": "Geospatial Data Analyst, Unicube",
+    "image": "media/distinguished/tanya-singh_100_cnykp4",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 101,
+  "fields": {
+    "category": 18,
+    "name": "Shivangi",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2015-2018",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/shivangi_101_tsv317",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 102,
+  "fields": {
+    "category": 23,
+    "name": "Avinash Chandra",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2015-2018",
+    "current_position": "Exploration Geologist, International Resources HoldingsCompany",
+    "image": "media/distinguished/avinash-chandra_102_zxtqes",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 103,
+  "fields": {
+    "category": 18,
+    "name": "Niharika Sharma",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2016-2019",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/niharika-sharma_103_sxeulj",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 104,
+  "fields": {
+    "category": 18,
+    "name": "Mukul Dhankar",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2017-2020",
+    "current_position": "Geologist, Oil and Natural Gas Commission(ONGC)",
+    "image": "media/distinguished/mukul-dhankar_104_mwsesr",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 105,
+  "fields": {
+    "category": 23,
+    "name": "Chetan Sharma",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2017-2020",
+    "current_position": "Scientist Officer, Exploration and Research (AMD)",
+    "image": "media/distinguished/chetan-sharma_105_x4ewa5",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 106,
+  "fields": {
+    "category": 18,
+    "name": "Sujata Pandey",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2017-2020",
+    "current_position": "Geologist, Geology Survey of India",
+    "image": "media/distinguished/sujata-pandey_106_qytrdw",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 107,
+  "fields": {
+    "category": 18,
+    "name": "Mit Sakhare",
+    "course": "B.Sc. (H) Geology",
+    "batch": "2016-2019",
+    "current_position": "Deputy Collector, Tripura",
+    "image": "media/distinguished/mit-sakhare_107_zwgbof",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 108,
+  "fields": {
+    "category": 20,
+    "name": "Mudit",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2019-2022",
+    "current_position": "Analyst, Axtria India Pvt. Ltd.,Noida",
+    "image": "media/distinguished/mudit_108_vkndmk",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 109,
+  "fields": {
+    "category": 20,
+    "name": "Sujata Guha",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2003-2006",
+    "current_position": "Statistician & Independent Business Consultant",
+    "image": "media/distinguished/sujata-guha_109_h74p5q",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 111,
+  "fields": {
+    "category": 20,
+    "name": "Raja Babu",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2009-2012",
+    "current_position": "Senior Manager, Protiviti india member firm, Noida",
+    "image": "media/distinguished/raja-babu_111_cohxit",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 112,
+  "fields": {
+    "category": 20,
+    "name": "Yamini Goyal",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2010-2013",
+    "current_position": "Qualified Actuary, Manager, Ernest Young, Bengaluru",
+    "image": "media/distinguished/yamini-goyal_112_gyzihc",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 113,
+  "fields": {
+    "category": 20,
+    "name": "Anuj Samvedi",
+    "course": "B.Sc. (H) Statistics",
+    "batch": "2013-2016",
+    "current_position": "Lead Actuarial Analyst",
+    "image": "media/distinguished/anuj-samvedi_113_q9oswh",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 114,
+  "fields": {
+    "category": 3,
+    "name": "Dr Ashwani Kumar,",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "1995-1998",
+    "current_position": "Senior Principal Scientist, IMTECH Chandigarh",
+    "image": "media/distinguished/dr-ashwani-kumar_114_stf23p",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 115,
+  "fields": {
+    "category": 20,
+    "name": "Rahul Ranganathan",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "2006-2009",
+    "current_position": "Director and CEO,  GoKarya & NuGenomics",
+    "image": "media/distinguished/rahul-ranganathan_115_z57n0v",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 116,
+  "fields": {
+    "category": 19,
+    "name": "Dr Pau Biak Sang",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "2004-2007",
+    "current_position": "Assistant Professor, Department of Microbiology,University of Delhi, South Campus",
+    "image": "media/distinguished/dr-pau-biak-sang_116_fzs4im",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 117,
+  "fields": {
+    "category": 3,
+    "name": "Dr Gagandeep Singh",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "2012-2015",
+    "current_position": "Assistant Research Officer, CCRAS Hqrs, Ministry of Ayush",
+    "image": "media/distinguished/dr-gagandeep-singh_117_xfpa5a",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 118,
+  "fields": {
+    "category": 19,
+    "name": "Dr Vivek Pandey",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "2013-2016",
+    "current_position": "Assistant Professor, ACBR",
+    "image": "media/distinguished/dr-vivek-pandey_118_hpzphf",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 119,
+  "fields": {
+    "category": 19,
+    "name": "Monisha Singh",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "1989-1992",
+    "current_position": "Senior Principal, Alcor Solutions Inc.",
+    "image": "media/distinguished/monisha-singh_119_z35uf7",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 120,
+  "fields": {
+    "category": 19,
+    "name": "Dr. Chandra Prakash Prasad",
+    "course": "B.Sc. (H) Microbiology",
+    "batch": "1997-2000",
+    "current_position": "Additional Professor, Dr B.R.A. IRCH, AIIMS Delhi",
+    "image": "media/distinguished/dr-chandra-prakash-prasad_120_bupt4y",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 121,
+  "fields": {
+    "category": 20,
+    "name": "Sidharth Mishra",
+    "course": "B.A. (H) History",
+    "batch": "1996-1999",
+    "current_position": "CEO & Co-Founder, RTD Global HR, Chennai",
+    "image": "media/distinguished/sidharth-mishra_121_jk0gbv",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 122,
+  "fields": {
+    "category": 21,
+    "name": "Aditya Tripathi",
+    "course": "B.A. (H) History",
+    "batch": "2011-2014",
+    "current_position": "Assistant Public Prosecutor, Govt. of NCT of Delhi",
+    "image": "media/distinguished/aditya-tripathi_122_bmm9bo",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 123,
+  "fields": {
+    "category": 19,
+    "name": "Dr. Dhurjjati Sarma",
+    "course": "B.A. (H) English",
+    "batch": "2003-2006",
+    "current_position": "Assistant Professor, Gauhati University, Assam, India",
+    "image": "media/distinguished/dr-dhurjjati-sarma_123_ndx5vh",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 124,
+  "fields": {
+    "category": 2,
+    "name": "Steven George",
+    "course": "B.A. (H) English",
+    "batch": "2014-2017",
+    "current_position": "Co-Editor,  Panorama of thePandemic",
+    "image": "media/distinguished/steven-george_124_kvba53",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 125,
+  "fields": {
+    "category": 2,
+    "name": "Kshitija Sharma",
+    "course": "B.A. (H) English",
+    "batch": "2005-2008",
+    "current_position": "Marketing & Communications Specialist, Flydocs, a subsidiary of Lufthansa Technik",
+    "image": "media/distinguished/kshitija-sharma_125_o6pae0",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 126,
+  "fields": {
+    "category": 20,
+    "name": "Vipasha Sharma",
+    "course": "B.A. (H) English",
+    "batch": "2016-2019",
+    "current_position": "Senior Marketing Analyst, Jones Lang LaSalle",
+    "image": "media/distinguished/vipasha-sharma_126_p15ijv",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 127,
+  "fields": {
+    "category": 19,
+    "name": "Tanya",
+    "course": "B.A. (H) English",
+    "batch": "2016-2019",
+    "current_position": "Assistant Professor, Ramjas College, University of Delhi",
+    "image": "media/distinguished/tanya_127_tw1kkm",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 128,
+  "fields": {
+    "category": 19,
+    "name": "Shivam Verma",
+    "course": "B.A. (H) Hindi",
+    "batch": "2015-2018",
+    "current_position": "Assistant Professor, Sri Aurobindo College\nUniversity of Delhi",
+    "image": "media/distinguished/shivam-verma_128_ckcnnw",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 129,
+  "fields": {
+    "category": 19,
+    "name": "Dr. Arun Kumar Singh",
+    "course": "B.A. (H) Political Science",
+    "batch": "2010-2013",
+    "current_position": "Assistant Professor, Multanimal Modi College",
+    "image": "media/distinguished/dr-arun-kumar-singh_129_osmua9",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 130,
+  "fields": {
+    "category": 2,
+    "name": "Ram Kishore",
+    "course": "B.A. (H) Political Science",
+    "batch": "2010-2013",
+    "current_position": "Assistant Editor, The Times of India Group",
+    "image": "media/distinguished/ram-kishore_130_bzzufj",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 131,
+  "fields": {
+    "category": 21,
+    "name": "Ashu Pathak",
+    "course": "B.A. (H) Political Science",
+    "batch": "2013-2016",
+    "current_position": "Advocate, High Court of Delhi",
+    "image": "media/distinguished/ashu-pathak_131_u0ssxk",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 132,
+  "fields": {
+    "category": 18,
+    "name": "Nishant Saini",
+    "course": "B.A. (H) Political Science",
+    "batch": "2017-2020",
+    "current_position": "Executive (HR-CSR), National Thermal PowerCorporation Limited",
+    "image": "media/distinguished/nishant-saini_132_gldvlr",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 133,
+  "fields": {
+    "category": 20,
+    "name": "Deshdeep Dhankhar",
+    "course": "B.A. Programme",
+    "batch": "2017-2020",
+    "current_position": "Max Weber Forum, Centre for Multilevel Federalism",
+    "image": "media/distinguished/deshdeep-dhankhar_133_l1moll",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 134,
+  "fields": {
+    "category": 18,
+    "name": "Anmol Jain",
+    "course": "Bachelor Of Management Studies",
+    "batch": "2017-2020",
+    "current_position": "Associate Manager, Quality Council of India &MBA, IE University, Spain",
+    "image": "media/distinguished/anmol-jain_134_tou6vt",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 135,
+  "fields": {
+    "category": 1,
+    "name": "Lieutenant Amitabh Charupa",
+    "course": "B.A. (H) Political Science",
+    "batch": "2017-2020",
+    "current_position": "Lieutenant",
+    "image": "media/distinguished/lieutenant-amitabh-charupa_135_wlunhi",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 136,
+  "fields": {
+    "category": 17,
+    "name": "Yogita Bihani",
+    "course": "B.Sc. (H) Computer Science",
+    "batch": "2012-2015",
+    "current_position": "Actress and Model",
+    "image": "media/distinguished/yogita_bihani_bxqmqm",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 137,
+  "fields": {
+    "category": 17,
+    "name": "Priyanshu Chatterjee",
+    "course": "B.com Hons",
+    "batch": "1990 - 1993",
+    "current_position": "Former Actor and Model",
+    "image": "media/distinguished/priyanshi_chaaterjee_iz7qvz",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 138,
+  "fields": {
+    "category": 17,
+    "name": "Abish Mathew",
+    "course": "B.A. (H) History",
+    "batch": "-",
+    "current_position": "Stand-up comedian",
+    "image": "media/distinguished/abish_bq9jr2",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+},
+{
+  "model": "alumniportal.distinguishedalumni",
+  "pk": 139,
+  "fields": {
+    "category": 17,
+    "name": "Ovind Yadav",
+    "course": "B.com Hons",
+    "batch": "2016-2019",
+    "current_position": "Producer & Director",
+    "image": "media/distinguished/ovind_sernkt",
+    "position": 0,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+}
+]

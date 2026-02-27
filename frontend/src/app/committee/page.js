@@ -8,7 +8,7 @@ export default function AlumniEventsPage() {
   const [activeAccordion, setActiveAccordion] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const API_BASE = "http://127.0.0.1:8000";
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     fetch(`${API_BASE}/api/grouped-events/`)

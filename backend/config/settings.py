@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG") == True
+DEBUG = os.getenv("DEBUG","False") == True
 
-ALLOWED_HOSTS = ['187.77.185.92','192.168.56.1:3000', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['187.77.185.92', 'rlaalumni.in', 'www.rlaalumni.in', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -59,11 +59,16 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
+    "https://rlaalumni.in",
+    "https://www.rlaalumni.in",
     "http://localhost:3000",
-    "http://127.0.0.1",
-    "http://192.168.56.1:3000",
 ]
-CSRF_TRUSTED_ORIGINS = ["http://187.77.185.92","http://localhost:3000", "http://127.0.0.1"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://rlaalumni.in",
+    "https://www.rlaalumni.in",
+    "http://localhost:3000",
+]
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -132,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -159,3 +164,8 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_DIRS = [
+    '/var/www/alumni/backend/venv/lib/python3.12/site-packages/django/contrib/admin/static/',
+]

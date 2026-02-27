@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState,Suspense } from "react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,7 +12,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 // --- STEP 2: HELPER FUNCTION (Top level par) ---
 
 // --- STEP 3: MAIN COMPONENT ---
-export default function AboutPage() {
+function AboutContent() {
   const searchParams = useSearchParams();
   const tab = searchParams.get("tab") || "college"; 
 
@@ -90,7 +90,7 @@ function AboutCollege() {
         <div className="founder-image-box">
           <div className="img-frame">
             <img 
-              src="/images/founder.jpg" 
+              src="/images/Founder.jpg" 
               alt="RLA College Founder" 
               className="founder-img-rect" 
             />
@@ -566,5 +566,12 @@ export function Preamble() {
         ))}
       </div>
     </div>
+  );
+}
+export default function AboutPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AboutContent />
+    </Suspense>
   );
 }

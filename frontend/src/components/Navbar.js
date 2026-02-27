@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState,Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function Navbar() {
+function NavbarContent() {
   const [suggestion_link, setSuggestionUrl] = useState("#");
   const [menuOpen, setMenuOpen] = useState(false);
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -74,5 +74,12 @@ export default function Navbar() {
   </div>
 </nav>
     </>
+  );
+}
+export default function Navbar() {
+  return (
+    <Suspense fallback={<div></div>}>
+      <NavbarContent />
+    </Suspense>
   );
 }
