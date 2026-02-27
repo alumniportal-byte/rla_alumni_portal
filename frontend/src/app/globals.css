@@ -977,6 +977,13 @@ footer { background-color: #222; color: white; padding: 24px; margin-top: 20px; 
 }
 
 /* Mobile Responsive */
+
+@media (max-width: 480px) {
+    .college-logo, .uni-logo { height: 45px; }
+    .header-text h1 { font-size: 1.1rem; }
+    .header-text h2 { font-size: 0.9rem; }
+    .header-text p { font-size: 0.75rem; }
+}
 @media (max-width: 768px) {
     .staff-table-wrapper {
         overflow-x: auto; /* Mobile pe scrollable table */
